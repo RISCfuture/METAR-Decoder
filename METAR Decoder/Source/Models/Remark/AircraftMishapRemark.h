@@ -1,0 +1,3 @@
+@interface AircraftMishapRemark : Remark
+
+@end

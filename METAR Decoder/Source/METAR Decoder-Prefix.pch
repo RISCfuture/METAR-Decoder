@@ -1,0 +1,29 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
+
+#import "NSString+Splitting.h"
+#import "Enumerators.h"
+
+#import "Rational.h"
+#import "ImproperFraction.h"
+
+#import "METARTypes.h"
+
+#import "Remark.h"
+#import "Remark+Decoding.h"
+#import "Remark+Localization.h"
+
+#import "METAR.h"
+#import "METAR+Decoding.h"
+#import "METAR+Remarks.h"
+#import "METAR+Dates.h"
+#import "METAR+Localization.h"
+
+#import "METARDecoder.h"

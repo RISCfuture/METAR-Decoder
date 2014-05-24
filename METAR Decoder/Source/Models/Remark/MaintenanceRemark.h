@@ -1,0 +1,3 @@
+@interface MaintenanceRemark : Remark
+
+@end

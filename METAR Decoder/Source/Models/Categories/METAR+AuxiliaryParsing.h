@@ -1,0 +1,6 @@
+
+
+@interface METAR (AuxiliaryParsing)
+
+
+@end
