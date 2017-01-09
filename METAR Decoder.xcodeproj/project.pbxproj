@@ -60,6 +60,7 @@
 		01CC465E193464B0002DCF94 /* MaintenanceRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CC465D193464B0002DCF94 /* MaintenanceRemark.m */; };
 		01CC466219348692002DCF94 /* Remark+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CC466119348692002DCF94 /* Remark+Localization.m */; };
 		01CC4665193486A2002DCF94 /* Remark+Decoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CC4664193486A2002DCF94 /* Remark+Decoding.m */; };
+		223A692D1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 223A692C1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.m */; };
 		223F5CCC19304638004CF0E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223F5CCB19304638004CF0E7 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +186,8 @@
 		01CC4663193486A2002DCF94 /* Remark+Decoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Remark+Decoding.h"; sourceTree = "<group>"; };
 		01CC4664193486A2002DCF94 /* Remark+Decoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Remark+Decoding.m"; sourceTree = "<group>"; };
 		01CC466819349CE8002DCF94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		223A692B1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodicIceAccretionAmountRemark.h; sourceTree = "<group>"; };
+		223A692C1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodicIceAccretionAmountRemark.m; sourceTree = "<group>"; };
 		223F5CC819304638004CF0E7 /* METAR Decoder */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "METAR Decoder"; sourceTree = BUILT_PRODUCTS_DIR; };
 		223F5CCB19304638004CF0E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -318,6 +321,8 @@
 				01CC4633193423E5002DCF94 /* NoSPECIRemark.m */,
 				01CC463519342476002DCF94 /* RapidSnowIncreaseRemark.h */,
 				01CC463619342476002DCF94 /* RapidSnowIncreaseRemark.m */,
+				223A692B1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.h */,
+				223A692C1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.m */,
 				01CC4638193425D5002DCF94 /* HourlyPrecipitationAmountRemark.h */,
 				01CC4639193425D5002DCF94 /* HourlyPrecipitationAmountRemark.m */,
 				01CC463B193428EE002DCF94 /* PeriodicPrecipitationAmountRemark.h */,
@@ -506,6 +511,7 @@
 				019293E519332A2800447575 /* LightningRemark.m in Sources */,
 				019293F11933313700447575 /* METAR+Decoding.m in Sources */,
 				019293F21933313700447575 /* METAR+Remarks.m in Sources */,
+				223A692D1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.m in Sources */,
 				01929414193409B300447575 /* VariableSkyConditionRemark.m in Sources */,
 				01CC4652193459BF002DCF94 /* SixHourTemperatureExtremeRemark.m in Sources */,
 				01749C8B19312E0900C5A3B4 /* METARDecoder.m in Sources */,

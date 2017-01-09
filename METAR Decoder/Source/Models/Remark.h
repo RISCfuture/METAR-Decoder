@@ -93,6 +93,7 @@ typedef struct _RemarkLocation {
 #import "RapidSnowIncreaseRemark.h"
 #import "HourlyPrecipitationAmountRemark.h"
 #import "PeriodicPrecipitationAmountRemark.h"
+#import "PeriodicIceAccretionAmountRemark.h"
 #import "DailyPrecipitationAmountRemark.h"
 #import "SnowDepthRemark.h"
 #import "WaterEquivalentDepthRemark.h"
