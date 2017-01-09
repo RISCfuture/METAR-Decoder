@@ -7,13 +7,13 @@
 // ACSL SW-W
 // APRNT ROTOR CLD NE
 // CCSL S
-static NSString *SignificantCloudsRegex = @"\\b(APRNT )?" CLOUD_TYPE_REGEX @" (DSNT )?" REMARK_DIRECTION_REGEX @"(?:-" REMARK_DIRECTION_REGEX @")?(?: MOV " REMARK_DIRECTION_REGEX @")?\\b\\s*";
+// CB DSNT N AND NE
+static NSString *SignificantCloudsRegex = @"\\b(APRNT )?" CLOUD_TYPE_REGEX @" (DSNT )?" REMARK_DIRECTIONS_REGEX @"(?: MOV " REMARK_DIRECTION_REGEX @")?\\b\\s*";
 
 @implementation SignificantCloudsRemark
 
 @synthesize type;
-@synthesize direction1;
-@synthesize direction2;
+@synthesize directions;
 @synthesize movingDirection;
 @synthesize distant;
 @synthesize apparent;
@@ -34,16 +34,9 @@ static NSString *SignificantCloudsRegex = @"\\b(APRNT )?" CLOUD_TYPE_REGEX @" (D
         
         self.distant = ([match rangeAtIndex:3].location != NSNotFound);
         
-        NSString *codedDirection = [remarks substringWithRange:[match rangeAtIndex:4]];
-        self.direction1 = [self decodeDirection:codedDirection];
-        
-        if ([match rangeAtIndex:5].location != NSNotFound) {
-            NSString *codedDirection2 = [remarks substringWithRange:[match rangeAtIndex:5]];
-            self.direction2 = [self decodeDirection:codedDirection2];
-        }
-        else self.direction2 = DirectionNone;
-        
-        if ([match rangeAtIndex:6].location != NSNotFound) {
+        self.directions = [self parseDirectionsFromMatch:match index:4 inString:remarks];
+
+        if (match.numberOfRanges > 8 && [match rangeAtIndex:8].location != NSNotFound) {
             NSString *codedTrend = [remarks substringWithRange:[match rangeAtIndex:6]];
             self.movingDirection = [self decodeDirection:codedTrend];
         }
@@ -62,49 +55,32 @@ static NSString *SignificantCloudsRegex = @"\\b(APRNT )?" CLOUD_TYPE_REGEX @" (D
 // big if statements to make it easier for translation
 - (NSString *) stringValue {
     BOOL hasMoving = (self.movingDirection != DirectionNone);
-    BOOL hasDir2 = (self.direction2 != DirectionNone);
-    
     NSString *string = nil;
-    if (self.apparent && hasDir2 && hasMoving)
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"apparent %@ %@ to %@ moving %@", @"cloud type, direction to direction, moving direction"),
+
+    if (self.apparent && hasMoving) {
+        string = [NSString localizedStringWithFormat:NSLocalizedString(@"apparent %@ %@ moving %@", @"cloud type, directions, moving direction"),
                   [self localizedCloudType:self.type],
-                  [self localizedDirection:self.direction1],
-                  [self localizedDirection:self.direction2],
+                  [self localizedDirections:self.directions],
                   [self localizedDirection:self.movingDirection]];
-    else if (self.apparent && hasDir2)
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"apparent %@ %@ to %@", @"cloud type, direction to direction"),
+    }
+    else if (self.apparent) {
+        string = [NSString localizedStringWithFormat:NSLocalizedString(@"apparent %@ %@", @"cloud type, directions, moving direction"),
                   [self localizedCloudType:self.type],
-                  [self localizedDirection:self.direction1],
-                  [self localizedDirection:self.direction2]];
-    else if (hasDir2 && hasMoving)
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@ to %@ moving %@", @"cloud type, direction to direction, moving direction"),
+                  [self localizedDirections:self.directions]];
+
+    }
+    else if (hasMoving) {
+        string = [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@ moving %@", @"cloud type, directions, moving direction"),
                   [self localizedCloudType:self.type],
-                  [self localizedDirection:self.direction1],
-                  [self localizedDirection:self.direction2],
+                  [self localizedDirections:self.directions],
                   [self localizedDirection:self.movingDirection]];
-    else if (self.apparent && hasMoving)
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"apparent %@ %@ moving %@", @"cloud type, direction, moving direction"),
-                  [self localizedCloudType:self.type],
-                  [self localizedDirection:self.direction1],
-                  [self localizedDirection:self.movingDirection]];
-    else if (self.apparent)
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"apparent %@ %@", @"cloud type, direction"),
-                  [self localizedCloudType:self.type],
-                  [self localizedDirection:self.direction1]];
-    else if (hasDir2)
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@ to %@", @"cloud type, direction to direction"),
-                  [self localizedCloudType:self.type],
-                  [self localizedDirection:self.direction1],
-                  [self localizedDirection:self.direction2]];
-    else if (hasMoving)
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@ moving %@", @"cloud type, direction, moving direction"),
-                  [self localizedCloudType:self.type],
-                  [self localizedDirection:self.direction1],
-                  [self localizedDirection:self.movingDirection]];
-    else
+
+    }
+    else {
         string = [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@", @"cloud type, direction"),
                   [self localizedCloudType:self.type],
-                  [self localizedDirection:self.direction1]];
+                  [self localizedDirections:self.directions]];
+    }
     
     if (self.distant)
         return [string stringByAppendingString:NSLocalizedString(@" (distant)", @"appended to significant clouds remark")];

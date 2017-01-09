@@ -14,8 +14,7 @@ typedef enum _SignificantCloudType {
 @interface SignificantCloudsRemark : Remark
 
 @property (assign) SignificantCloudType type;
-@property (assign) RemarkDirection direction1;
-@property (assign) RemarkDirection direction2;
+@property (assign) DirectionMask directions;
 @property (assign) RemarkDirection movingDirection;
 @property (assign) BOOL distant;
 @property (assign) BOOL apparent;
