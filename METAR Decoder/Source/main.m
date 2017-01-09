@@ -14,6 +14,7 @@ int main(int argc, const char * argv[]) {
 
         METARDecoder *decoder = [METARDecoder new];
         METAR *METAR = [decoder loadMETARForAirport:airportCode];
+        NSLog(@"%@", METAR);
         
         if (!METAR) {
             printf("Bad airport code\n");
