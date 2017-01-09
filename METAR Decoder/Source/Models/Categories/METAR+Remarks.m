@@ -3,6 +3,8 @@
 @implementation METAR (Remarks)
 
 - (NSArray *) decodedRemarks {
+    if (!self.remarks) return nil;
+
     NSMutableString *consumableRemarks = [NSMutableString stringWithString:self.remarks];
     NSMutableArray *decodedRemarks = [NSMutableArray new];
     
