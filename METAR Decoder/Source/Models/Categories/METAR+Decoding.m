@@ -82,12 +82,25 @@
 
 - (ImproperFraction *) parseVisibilityFromMatch:(NSTextCheckingResult *)match index:(NSUInteger)index inString:(NSString *)string {
     NSInteger whole;
-    if ([match rangeAtIndex:index].location == NSNotFound)
-        whole = 0;
-    else
+    Rational *fraction;
+
+    if ([match rangeAtIndex:index].location != NSNotFound) {
         whole = [[string substringWithRange:[match rangeAtIndex:index]] integerValue];
-    Rational *fraction = [[Rational alloc] initWith:[[string substringWithRange:[match rangeAtIndex:index+1]] integerValue]
-                                               over:[[string substringWithRange:[match rangeAtIndex:index+2]] integerValue]];
+    }
+    else if ([match rangeAtIndex:index+5].location != NSNotFound) {
+        whole = [[string substringWithRange:[match rangeAtIndex:index+5]] integerValue];
+    }
+    else {
+        whole = 0;
+    }
+
+    if ([match rangeAtIndex:index+1].location == NSNotFound) {
+        fraction = NULL;
+    }
+    else {
+        fraction = [[Rational alloc] initWith:[[string substringWithRange:[match rangeAtIndex:index+1]] integerValue]
+                                                   over:[[string substringWithRange:[match rangeAtIndex:index+2]] integerValue]];
+    }
     return [[ImproperFraction alloc] initWithWhole:whole fraction:fraction];
 }
 

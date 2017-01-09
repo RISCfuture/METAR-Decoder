@@ -18,7 +18,7 @@ static NSString *VariablePrevailingVisibilityRegex = @"\\bVIS " METAR_VISIBILITY
         if (!match) return (self = nil);
         
         self.low = [self.parent parseVisibilityFromMatch:match index:1 inString:remarks];
-        self.high = [self.parent parseVisibilityFromMatch:match index:4 inString:remarks];
+        self.high = [self.parent parseVisibilityFromMatch:match index:7 inString:remarks];
         
         [remarks deleteCharactersInRange:match.range];
     }

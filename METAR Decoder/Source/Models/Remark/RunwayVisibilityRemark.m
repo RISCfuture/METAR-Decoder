@@ -18,7 +18,7 @@ static NSString *RunwayVisibilityRegex = @"\\bVIS " METAR_VISIBILITY_REGEX @" RW
         if (!match) return (self = nil);
         
         self.distance = [self.parent parseVisibilityFromMatch:match index:1 inString:remarks];
-        self.runway = [remarks substringWithRange:[match rangeAtIndex:4]];
+        self.runway = [remarks substringWithRange:[match rangeAtIndex:7]];
         
         [remarks deleteCharactersInRange:match.range];
     }
