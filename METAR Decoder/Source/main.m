@@ -1,11 +1,17 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        NSString *airportCode;
+
         if (argc == 1) {
             printf("Enter the ICAO code of an airport to decode.\n");
-            exit(1);
+            char code[5];
+            scanf("%4s", code);
+            airportCode = [NSString stringWithCString:code encoding:NSASCIIStringEncoding];
         }
-        
-        NSString *airportCode = [NSString stringWithCString:argv[1] encoding:NSASCIIStringEncoding];
+        else {
+            airportCode = [NSString stringWithCString:argv[1] encoding:NSASCIIStringEncoding];
+        }
+
         METARDecoder *decoder = [METARDecoder new];
         METAR *METAR = [decoder loadMETARForAirport:airportCode];
         
