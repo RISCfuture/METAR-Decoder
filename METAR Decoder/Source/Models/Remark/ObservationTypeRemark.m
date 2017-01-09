@@ -2,11 +2,13 @@
 
 // AO1
 // AO2
-static NSString *ObservationTypeRegex = @"\\bAO(\\d+)\\b\\s*";
+// A02A
+static NSString *ObservationTypeRegex = @"\\bAO(\\d+)(A)?\\b\\s*";
 
 @implementation ObservationTypeRemark
 
 @synthesize type;
+@synthesize augmented;
 
 + (void) load {
     [Remark registerSubclass:self];
@@ -21,6 +23,8 @@ static NSString *ObservationTypeRegex = @"\\bAO(\\d+)\\b\\s*";
         if ([codedType isEqualToString:@"1"]) self.type = ObservationTypeAutomated;
         else if ([codedType isEqualToString:@"2"]) self.type = ObservationTypeAutomatedWithPrecipiation;
         else return (self = nil);
+
+        self.augmented = [match rangeAtIndex:2].location != NSNotFound;
         
         [remarks deleteCharactersInRange:match.range];
     }
@@ -28,14 +32,23 @@ static NSString *ObservationTypeRegex = @"\\bAO(\\d+)\\b\\s*";
 }
 
 - (NSString *) stringValue {
+    NSString *string;
     switch (self.type) {
         case ObservationTypeAutomated:
-            return NSLocalizedString(@"automated weather observing", @"remark");
+            string = NSLocalizedString(@"automated weather observing", @"remark");
+            break;
         case ObservationTypeAutomatedWithPrecipiation:
-            return NSLocalizedString(@"automated weather observing (plus precipiation sensor)", @"remark");
+            string = NSLocalizedString(@"automated weather observing (plus precipiation sensor)", @"remark");
+            break;
         default:
-            return NSLocalizedString(@"unknown weather observing", @"remark");
+            string = NSLocalizedString(@"unknown weather observing", @"remark");
+            break;
     }
+
+    if (self.augmented) {
+        return [string stringByAppendingString:NSLocalizedString(@" augmented with human observer", @"observation type")];
+    }
+    else return string;
 }
 
 - (RemarkUrgency) urgency {
