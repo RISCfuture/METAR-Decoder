@@ -80,7 +80,7 @@ typedef struct _RemarkLocation {
 #import "ThunderstormBeginEndRemark.h"
 #import "ThunderstormLocationRemark.h"
 #import "HailstoneSizeRemark.h"
-#import "VirgaRemark.h"
+#import "ObservedPrecipitationRemark.h"
 #import "VariableCeilingHeightRemark.h"
 #import "ObscurationRemark.h"
 #import "VariableSkyConditionRemark.h"

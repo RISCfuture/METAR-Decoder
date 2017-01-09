@@ -34,7 +34,7 @@
 		019294021933FCF300447575 /* ThunderstormBeginEndRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019294011933FCF300447575 /* ThunderstormBeginEndRemark.m */; };
 		019294051933FE2900447575 /* ThunderstormLocationRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019294041933FE2900447575 /* ThunderstormLocationRemark.m */; };
 		019294081934007500447575 /* HailstoneSizeRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019294071934007500447575 /* HailstoneSizeRemark.m */; };
-		0192940B1934016900447575 /* VirgaRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192940A1934016900447575 /* VirgaRemark.m */; };
+		0192940B1934016900447575 /* ObservedPrecipitationRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192940A1934016900447575 /* ObservedPrecipitationRemark.m */; };
 		0192940E1934029A00447575 /* VariableCeilingHeightRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192940D1934029A00447575 /* VariableCeilingHeightRemark.m */; };
 		019294111934047300447575 /* ObscurationRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019294101934047300447575 /* ObscurationRemark.m */; };
 		01929414193409B300447575 /* VariableSkyConditionRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 01929413193409B300447575 /* VariableSkyConditionRemark.m */; };
@@ -132,8 +132,8 @@
 		019294041933FE2900447575 /* ThunderstormLocationRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThunderstormLocationRemark.m; sourceTree = "<group>"; };
 		019294061934007500447575 /* HailstoneSizeRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HailstoneSizeRemark.h; sourceTree = "<group>"; };
 		019294071934007500447575 /* HailstoneSizeRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HailstoneSizeRemark.m; sourceTree = "<group>"; };
-		019294091934016900447575 /* VirgaRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirgaRemark.h; sourceTree = "<group>"; };
-		0192940A1934016900447575 /* VirgaRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirgaRemark.m; sourceTree = "<group>"; };
+		019294091934016900447575 /* ObservedPrecipitationRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObservedPrecipitationRemark.h; sourceTree = "<group>"; };
+		0192940A1934016900447575 /* ObservedPrecipitationRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservedPrecipitationRemark.m; sourceTree = "<group>"; };
 		0192940C1934029A00447575 /* VariableCeilingHeightRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableCeilingHeightRemark.h; sourceTree = "<group>"; };
 		0192940D1934029A00447575 /* VariableCeilingHeightRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableCeilingHeightRemark.m; sourceTree = "<group>"; };
 		0192940F1934047300447575 /* ObscurationRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObscurationRemark.h; sourceTree = "<group>"; };
@@ -299,8 +299,8 @@
 				019294041933FE2900447575 /* ThunderstormLocationRemark.m */,
 				019294061934007500447575 /* HailstoneSizeRemark.h */,
 				019294071934007500447575 /* HailstoneSizeRemark.m */,
-				019294091934016900447575 /* VirgaRemark.h */,
-				0192940A1934016900447575 /* VirgaRemark.m */,
+				019294091934016900447575 /* ObservedPrecipitationRemark.h */,
+				0192940A1934016900447575 /* ObservedPrecipitationRemark.m */,
 				0192940C1934029A00447575 /* VariableCeilingHeightRemark.h */,
 				0192940D1934029A00447575 /* VariableCeilingHeightRemark.m */,
 				0192940F1934047300447575 /* ObscurationRemark.h */,
@@ -478,7 +478,7 @@
 				01CC465E193464B0002DCF94 /* MaintenanceRemark.m in Sources */,
 				01CC4634193423E5002DCF94 /* NoSPECIRemark.m in Sources */,
 				019294111934047300447575 /* ObscurationRemark.m in Sources */,
-				0192940B1934016900447575 /* VirgaRemark.m in Sources */,
+				0192940B1934016900447575 /* ObservedPrecipitationRemark.m in Sources */,
 				01CC466219348692002DCF94 /* Remark+Localization.m in Sources */,
 				019293F01933313700447575 /* METAR+Dates.m in Sources */,
 				019293FF1933F96400447575 /* METAR+Localization.m in Sources */,
