@@ -31,7 +31,6 @@
 		019293F91933EEEB00447575 /* Enumerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 019293F81933EEEB00447575 /* Enumerators.m */; };
 		019293FC1933F3C400447575 /* PrecipitationBeginEndRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019293FB1933F3C400447575 /* PrecipitationBeginEndRemark.m */; };
 		019293FF1933F96400447575 /* METAR+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = 019293FE1933F96400447575 /* METAR+Localization.m */; };
-		019294021933FCF300447575 /* ThunderstormBeginEndRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019294011933FCF300447575 /* ThunderstormBeginEndRemark.m */; };
 		019294051933FE2900447575 /* ThunderstormLocationRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019294041933FE2900447575 /* ThunderstormLocationRemark.m */; };
 		019294081934007500447575 /* HailstoneSizeRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019294071934007500447575 /* HailstoneSizeRemark.m */; };
 		0192940B1934016900447575 /* ObservedPrecipitationRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192940A1934016900447575 /* ObservedPrecipitationRemark.m */; };
@@ -60,6 +59,7 @@
 		01CC465E193464B0002DCF94 /* MaintenanceRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CC465D193464B0002DCF94 /* MaintenanceRemark.m */; };
 		01CC466219348692002DCF94 /* Remark+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CC466119348692002DCF94 /* Remark+Localization.m */; };
 		01CC4665193486A2002DCF94 /* Remark+Decoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CC4664193486A2002DCF94 /* Remark+Decoding.m */; };
+		220B9F821ED63467003F165C /* ThunderstormBeginEndRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 220B9F811ED63467003F165C /* ThunderstormBeginEndRemark.m */; };
 		223A692D1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 223A692C1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.m */; };
 		223F5CCC19304638004CF0E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223F5CCB19304638004CF0E7 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -126,8 +126,6 @@
 		019293FB1933F3C400447575 /* PrecipitationBeginEndRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrecipitationBeginEndRemark.m; sourceTree = "<group>"; };
 		019293FD1933F96400447575 /* METAR+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "METAR+Localization.h"; sourceTree = "<group>"; };
 		019293FE1933F96400447575 /* METAR+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "METAR+Localization.m"; sourceTree = "<group>"; };
-		019294001933FCF300447575 /* ThunderstormBeginEndRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderstormBeginEndRemark.h; sourceTree = "<group>"; };
-		019294011933FCF300447575 /* ThunderstormBeginEndRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThunderstormBeginEndRemark.m; sourceTree = "<group>"; };
 		019294031933FE2900447575 /* ThunderstormLocationRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderstormLocationRemark.h; sourceTree = "<group>"; };
 		019294041933FE2900447575 /* ThunderstormLocationRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThunderstormLocationRemark.m; sourceTree = "<group>"; };
 		019294061934007500447575 /* HailstoneSizeRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HailstoneSizeRemark.h; sourceTree = "<group>"; };
@@ -186,6 +184,8 @@
 		01CC4663193486A2002DCF94 /* Remark+Decoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Remark+Decoding.h"; sourceTree = "<group>"; };
 		01CC4664193486A2002DCF94 /* Remark+Decoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Remark+Decoding.m"; sourceTree = "<group>"; };
 		01CC466819349CE8002DCF94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		220B9F801ED63467003F165C /* ThunderstormBeginEndRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderstormBeginEndRemark.h; sourceTree = "<group>"; };
+		220B9F811ED63467003F165C /* ThunderstormBeginEndRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThunderstormBeginEndRemark.m; sourceTree = "<group>"; };
 		223A692B1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodicIceAccretionAmountRemark.h; sourceTree = "<group>"; };
 		223A692C1E24333900D074B0 /* PeriodicIceAccretionAmountRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodicIceAccretionAmountRemark.m; sourceTree = "<group>"; };
 		223F5CC819304638004CF0E7 /* METAR Decoder */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "METAR Decoder"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,8 +293,8 @@
 				019293E419332A2800447575 /* LightningRemark.m */,
 				019293FA1933F3C400447575 /* PrecipitationBeginEndRemark.h */,
 				019293FB1933F3C400447575 /* PrecipitationBeginEndRemark.m */,
-				019294001933FCF300447575 /* ThunderstormBeginEndRemark.h */,
-				019294011933FCF300447575 /* ThunderstormBeginEndRemark.m */,
+				220B9F801ED63467003F165C /* ThunderstormBeginEndRemark.h */,
+				220B9F811ED63467003F165C /* ThunderstormBeginEndRemark.m */,
 				019294031933FE2900447575 /* ThunderstormLocationRemark.h */,
 				019294041933FE2900447575 /* ThunderstormLocationRemark.m */,
 				019294061934007500447575 /* HailstoneSizeRemark.h */,
@@ -475,6 +475,7 @@
 				01CC46491934327F002DCF94 /* CloudTypesRemark.m in Sources */,
 				01749C8A19312E0900C5A3B4 /* main.m in Sources */,
 				01CC462819341EA4002DCF94 /* RunwayCeilingRemark.m in Sources */,
+				220B9F821ED63467003F165C /* ThunderstormBeginEndRemark.m in Sources */,
 				01CC465E193464B0002DCF94 /* MaintenanceRemark.m in Sources */,
 				01CC4634193423E5002DCF94 /* NoSPECIRemark.m in Sources */,
 				019294111934047300447575 /* ObscurationRemark.m in Sources */,
@@ -506,7 +507,6 @@
 				01749C9E1932AF4400C5A3B4 /* ObservationTypeRemark.m in Sources */,
 				01CC462B19342058002DCF94 /* RapidPressureChangeRemark.m in Sources */,
 				01CC464C193456A6002DCF94 /* SunshineDurationRemark.m in Sources */,
-				019294021933FCF300447575 /* ThunderstormBeginEndRemark.m in Sources */,
 				01749CAA1932B24C00C5A3B4 /* ObservedVisibilityRemark.m in Sources */,
 				019293E519332A2800447575 /* LightningRemark.m in Sources */,
 				019293F11933313700447575 /* METAR+Decoding.m in Sources */,
