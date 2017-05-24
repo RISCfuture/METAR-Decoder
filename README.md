@@ -20,7 +20,7 @@ $ METAR\ Decoder PAFA
 (R) barometric pressure 0.4 hPa higher than three hours ago and increasing more slowly
 (R) few smoke at surface
 (R) 24-hour temperature low 6.7 °C, high 21.1 °C
-(R) automated weather observing (plus precipiation sensor)
+(R) automated weather observing (plus precipitation sensor)
 ````
 
 Remarks are prefixed by an urgency:

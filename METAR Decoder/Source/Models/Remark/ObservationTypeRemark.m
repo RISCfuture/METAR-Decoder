@@ -21,7 +21,7 @@ static NSString *ObservationTypeRegex = @"\\bAO(\\d+)(A)?\\b\\s*";
         
         NSString *codedType = [remarks substringWithRange:[match rangeAtIndex:1]];
         if ([codedType isEqualToString:@"1"]) self.type = ObservationTypeAutomated;
-        else if ([codedType isEqualToString:@"2"]) self.type = ObservationTypeAutomatedWithPrecipiation;
+        else if ([codedType isEqualToString:@"2"]) self.type = ObservationTypeAutomatedWithPrecipitation;
         else return (self = nil);
 
         self.augmented = [match rangeAtIndex:2].location != NSNotFound;
@@ -37,8 +37,8 @@ static NSString *ObservationTypeRegex = @"\\bAO(\\d+)(A)?\\b\\s*";
         case ObservationTypeAutomated:
             string = NSLocalizedString(@"automated weather observing", @"remark");
             break;
-        case ObservationTypeAutomatedWithPrecipiation:
-            string = NSLocalizedString(@"automated weather observing (plus precipiation sensor)", @"remark");
+        case ObservationTypeAutomatedWithPrecipitation:
+            string = NSLocalizedString(@"automated weather observing (plus precipitation sensor)", @"remark");
             break;
         default:
             string = NSLocalizedString(@"unknown weather observing", @"remark");
