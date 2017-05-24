@@ -2,10 +2,7 @@
 
 @implementation METAR (Decoding)
 
-- (NSDateComponents *) decodeDate:(NSString *)METARString {
-    NSArray *words = [METARString componentsSeparatedByString:@" "];
-    NSString *dateString = words[1];
-    
+- (NSDateComponents *) decodeDate:(NSString *)dateString {
     NSTimeZone *timezone;
     NSString *timezoneCode = [dateString substringWithRange:NSMakeRange(6, 1)];
     if ([timezoneCode isEqualToString:@"Z"])

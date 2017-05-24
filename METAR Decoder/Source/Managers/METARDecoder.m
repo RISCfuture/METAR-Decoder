@@ -6,12 +6,6 @@
 
 @end
 
-@interface METARDecoder (Decoding)
-
-- (NSString *) remarksPortionOfMETAR:(NSString *)METAR;
-
-@end
-
 @implementation METARDecoder
 
 - (METAR *) loadMETARForAirport:(NSString *)airportCode {
@@ -21,9 +15,7 @@
 }
 
 - (METAR *) parseMETAR:(NSString *)METARString {
-    METAR *airportMETAR = [METAR new];
-    airportMETAR.date = [airportMETAR decodeDate:METARString];
-    airportMETAR.remarks = [self remarksPortionOfMETAR:METARString];
+    METAR *airportMETAR = [[METAR alloc] initWithString:METARString];
 
     return airportMETAR;
 }
@@ -48,16 +40,3 @@
 }
 
 @end
-
-@implementation METARDecoder (Decoding)
-
-- (NSString *) remarksPortionOfMETAR:(NSString *)METAR {
-    NSArray *elements = [METAR componentsSeparatedByString:@" "];
-    NSUInteger RMKOffset = [elements indexOfObject:@"RMK"];
-    if (RMKOffset == NSNotFound) return nil;
-
-    return [[elements subarrayWithRange:NSMakeRange(RMKOffset+1, elements.count - RMKOffset - 1)] componentsJoinedByString:@" "];
-}
-
-@end
-
