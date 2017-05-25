@@ -19,6 +19,14 @@
         leftover.remark = consumableRemarks;
         [decodedRemarks addObject:leftover];
     }
+
+    // sort by urgent, then caution, then informative, then unknown
+
+    [decodedRemarks sortUsingComparator:^NSComparisonResult(Remark *r1, Remark *r2) {
+        if (r1.urgency > r2.urgency) return NSOrderedAscending;
+        if (r1.urgency < r2.urgency) return NSOrderedDescending;
+        return NSOrderedSame;
+    }];
     
     return decodedRemarks;
 }
