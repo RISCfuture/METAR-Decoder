@@ -42,15 +42,15 @@ static NSString *ObscurationRegex = @"\\b" OBSCURATION_TYPE_REGEX @" " COVERAGE_
 - (NSString *) stringValue {
     NSString *heightString;
     if (self.height == 0)
-        heightString = NSLocalizedString(@"surface", @"obscurations with height = 0");
+        heightString = MDLocalizedString(@"METAR.Remark.Obscuration.Height.Surface", nil);
     else
-        heightString = [NSString localizedStringWithFormat:NSLocalizedString(@"%lu feet", @"height"), self.height];
+        heightString = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Obscuration.Height", @"{height}"), self.height];
     
     if (self.coverage == CoverageUnspecified)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ at %@", @"obscuration, height"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Obscuration.NoCoverage", @"{obscuration}, {height}"),
                 [self.parent localizedObscuration:self.type], heightString];
     else
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@ at %@", @"coverage amount, obscuration, height"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Obscuration.WithCoverage", @"{coverage amount}, {obscuration}, {height}"),
                 [self.parent localizedCoverage:self.coverage],
                 [self.parent localizedObscuration:self.type],
                 heightString];

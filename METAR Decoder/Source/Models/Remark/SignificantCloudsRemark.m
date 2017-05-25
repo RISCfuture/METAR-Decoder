@@ -58,32 +58,32 @@ static NSString *SignificantCloudsRegex = @"\\b(APRNT )?" CLOUD_TYPE_REGEX @" (D
     NSString *string = nil;
 
     if (self.apparent && hasMoving) {
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"apparent %@ %@ moving %@", @"cloud type, directions, moving direction"),
+        string = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SignificantClouds.ApparentMoving", @"{type}, {direction}, {moving direction}"),
                   [self localizedCloudType:self.type],
                   [self localizedDirections:self.directions],
                   [self localizedDirection:self.movingDirection]];
     }
     else if (self.apparent) {
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"apparent %@ %@", @"cloud type, directions, moving direction"),
+        string = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SignificantClouds.Apparent", @"{type}, {direction}"),
                   [self localizedCloudType:self.type],
                   [self localizedDirections:self.directions]];
 
     }
     else if (hasMoving) {
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@ moving %@", @"cloud type, directions, moving direction"),
+        string = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SignificantClouds.Moving", @"{type}, {direction}, {moving direction}"),
                   [self localizedCloudType:self.type],
                   [self localizedDirections:self.directions],
                   [self localizedDirection:self.movingDirection]];
 
     }
     else {
-        string = [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@", @"cloud type, direction"),
+        string = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SignificantClouds.NotMoving", @"{type}, {direction}"),
                   [self localizedCloudType:self.type],
                   [self localizedDirections:self.directions]];
     }
     
     if (self.distant)
-        return [string stringByAppendingString:NSLocalizedString(@" (distant)", @"appended to significant clouds remark")];
+        return [string stringByAppendingString:MDLocalizedString(@"METAR.Remark.SignificantClouds.Distant", @"appended to significant clouds remark")];
     else return string;
 }
 
@@ -105,21 +105,21 @@ static NSString *SignificantCloudsRegex = @"\\b(APRNT )?" CLOUD_TYPE_REGEX @" (D
 - (NSString *) localizedCloudType:(SignificantCloudType)cloudType {
     switch (cloudType) {
         case SignificantTypeRotor:
-            return NSLocalizedString(@"rotor cloud", @"significant cloud type");
+            return MDLocalizedString(@"METAR.Remark.SignificantClouds.Type.ROTORCLD", nil);
         case SignificantTypeCirrocumulusStandingLenticular:
-            return NSLocalizedString(@"standing lenticular cirrocumulus", @"significant cloud type");
+            return MDLocalizedString(@"METAR.Remark.SignificantClouds.Type.CCSL", nil);
         case SignificantTypeAltocumulusStandingLenticular:
-            return NSLocalizedString(@"standing lenticular altocumulus", @"significant cloud type");
+            return MDLocalizedString(@"METAR.Remark.SignificantClouds.Type.ACSL", nil);
         case SignificantTypeStratocumulusStandingLenticular:
-            return NSLocalizedString(@"standing lenticular stratocumulus", @"significant cloud type");
+            return MDLocalizedString(@"METAR.Remark.SignificantClouds.Type.SCSL", nil);
         case SignificantTypeAltocumulusCastellanus:
-            return NSLocalizedString(@"altocumulus castellanus", @"significant cloud type");
+            return MDLocalizedString(@"METAR.Remark.SignificantClouds.Type.ACC", nil);
         case SignificantTypeToweringCumulus:
-            return NSLocalizedString(@"towering cumulus", @"significant cloud type");
+            return MDLocalizedString(@"METAR.Remark.SignificantClouds.Type.TCU", nil);
         case SignificantTypeCumulonimbusMammatus:
-            return NSLocalizedString(@"cumulonimbus mammatus", @"significant cloud type");
+            return MDLocalizedString(@"METAR.Remark.SignificantClouds.Type.CBMAM", nil);
         case SignificantTypeCumulonimbus:
-            return NSLocalizedString(@"cumulonimbus", @"significant cloud type");
+            return MDLocalizedString(@"METAR.Remark.SignificantClouds.Type.CB", nil);
     }
 }
 

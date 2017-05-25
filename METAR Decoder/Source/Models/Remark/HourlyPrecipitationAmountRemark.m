@@ -31,9 +31,9 @@ static NSString *HourlyPrecipitationAmountRegex = @"\\bP(\\d{4})\\b\\s*";
 
 - (NSString *) stringValue {
     if (self.amount == 0)
-        return NSLocalizedString(@"trace precipitation in the last hour", @"remark");
+        return MDLocalizedString(@"METAR.Remark.HourlyPrecipitationAmount.Trace", nil);
     else
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%0.2f inches of precipitation in the last hour", @"precipitation amount"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.HourlyPrecipitationAmount", @"{precipitation amount}"),
                 self.amount];
 }
 

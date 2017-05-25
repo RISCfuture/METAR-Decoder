@@ -34,9 +34,9 @@ static NSString *SeaLevelPressureRegex = @"\\bSLP(\\d{3}|NO)\\b\\s*";
 
 - (NSString *) stringValue {
     if (self.pressure == SLPNotAvailable)
-        return NSLocalizedString(@"sea-level pressure not available", @"remark");
+        return MDLocalizedString(@"METAR.Remark.SeaLevelPressure.Unavailable", nil);
     else
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"sea-level pressure %0.1f hPa", @"pressure in hPa"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SeaLevelPressure", @"{pressure}"),
                 self.pressure];
 }
 

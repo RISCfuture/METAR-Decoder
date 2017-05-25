@@ -57,40 +57,40 @@ static NSString *TornadicActivityRegex = @"\\b(TORNADO|FUNNEL CLOUD|WATERSPOUT) 
     NSString *typeString;
     switch (self.type) {
         case TornadicTypeTorando:
-            typeString = NSLocalizedString(@"tornado", @"tornadic type");
+            typeString = MDLocalizedString(@"METAR.Remark.TornadicActivity.Type.Tornado", nil);
             break;
         case TornadicTypeFunnelCloud:
-            typeString = NSLocalizedString(@"funnel cloud", @"tornadic type");
+            typeString = MDLocalizedString(@"METAR.Remark.TornadicActivity.Type.FunnelCloud", nil);
             break;
         case TornadicTypeWaterspout:
-            typeString = NSLocalizedString(@"waterspout", @"tornadic type");
+            typeString = MDLocalizedString(@"METAR.Remark.TornadicActivity.Type.Waterspout", nil);
             break;
     }
     
     if (self.beginTime) {
         if (self.movingDirection != DirectionNone)
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ began at %@, %ld SM %@ moving %@", @"tornadic remark: type, time, distance, direction, moving direction"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.TornadicActivity.Began.Moving", @"{type}, {time}, {distance}, {direction}, {moving direction}"),
                     typeString,
                     [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:self.beginTime]],
                     self.location.distance,
                     [self localizedDirection:self.location.direction],
                     [self localizedDirection:self.movingDirection]];
         else
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ began at %@, %ld SM %@", @"tornadic remark: type, time, distance, direction"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.TornadicActivity.Began", @"{type}, {time}, {distance}, {direction}"),
                     typeString,
                     [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:self.beginTime]],
                     self.location.distance,
                     [self localizedDirection:self.location.direction]];
     } else {
         if (self.movingDirection)
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ ended at %@, %ld SM %@ moving %@", @"tornadic remark: type, time, distance, direction, moving direction"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.TornadicActivity.Ended.Moving", @"{type}, {time}, {distance}, {direction}, {moving direction}"),
                     typeString,
                     [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:self.beginTime]],
                     self.location.distance,
                     [self localizedDirection:self.location.direction],
                     [self localizedDirection:self.movingDirection]];
         else
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ ended at %@, %ld SM %@", @"tornadic remark: type, time, distance, direction"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.TornadicActivity.Ended", @"{type}, {time}, {distance}, {direction}"),
                     typeString,
                     [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:self.beginTime]],
                     self.location.distance,

@@ -14,6 +14,8 @@
 #import "Rational.h"
 #import "ImproperFraction.h"
 
+#import "Bundle.h"
+
 #import "METARTypes.h"
 
 #import "Remark.h"

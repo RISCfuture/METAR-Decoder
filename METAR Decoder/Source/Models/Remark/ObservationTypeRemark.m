@@ -35,18 +35,18 @@ static NSString *ObservationTypeRegex = @"\\bAO(\\d+)(A)?\\b\\s*";
     NSString *string;
     switch (self.type) {
         case ObservationTypeAutomated:
-            string = NSLocalizedString(@"automated weather observing", @"remark");
+            string = MDLocalizedString(@"METAR.Remark.ObservationType.AO", nil);
             break;
         case ObservationTypeAutomatedWithPrecipitation:
-            string = NSLocalizedString(@"automated weather observing (plus precipitation sensor)", @"remark");
+            string = MDLocalizedString(@"METAR.Remark.ObservationType.AO2", nil);
             break;
         default:
-            string = NSLocalizedString(@"unknown weather observing", @"remark");
+            string = MDLocalizedString(@"METAR.Remark.ObservationType.Unknown", nil);
             break;
     }
 
     if (self.augmented) {
-        return [string stringByAppendingString:NSLocalizedString(@" augmented with human observer", @"observation type")];
+        return [string stringByAppendingString:MDLocalizedString(@"METAR.Remark.ObservationType.HumanAugmented", nil)];
     }
     else return string;
 }

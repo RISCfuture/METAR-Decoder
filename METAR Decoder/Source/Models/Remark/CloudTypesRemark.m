@@ -43,80 +43,80 @@ static NSString *CloudTypesRegex = @"\\b8\\/(\\d)(\\d|\\/)(\\d|\\/)\\s*";
 - (NSString *) stringValue {
     NSString *lowString;
     if (self.low == LowNone)
-        lowString = NSLocalizedString(@"no low clouds observed", @"cloud type remark");
+        lowString = MDLocalizedString(@"METAR.Remark.CloudTypes.Low.None", nil);
     else
-        lowString = [NSString localizedStringWithFormat:NSLocalizedString(@"low %@ clouds", @"cloud type remark"),
+        lowString = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.CloudTypes.Low", nil),
                      [self localizedLowCloudType:self.low]];
     
     NSString *midString;
     if (self.middle == MiddleObscured)
-        midString = NSLocalizedString(@"middle clouds obscured", @"cloud type remark");
+        midString = MDLocalizedString(@"METAR.Remark.CloudTypes.Middle.Obscured", nil);
     else if (self.middle == MiddleNone)
-        midString = NSLocalizedString(@"no middle clouds observed", @"cloud type remark");
-    else midString = [NSString localizedStringWithFormat:NSLocalizedString(@"middle %@ clouds", @"cloud type remark"),
+        midString = MDLocalizedString(@"METAR.Remark.CloudTypes.Middle.None", nil);
+    else midString = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.CloudTypes.Middle", nil),
                       [self localizedMiddleCloudType:self.middle]];
     
     NSString *highString;
     if (self.high == HighObscured)
-        highString = NSLocalizedString(@"high clouds obscured", @"cloud type remark");
+        highString = MDLocalizedString(@"METAR.Remark.CloudTypes.High.Obscured", nil);
     else if (self.high == HighNone)
-        highString = NSLocalizedString(@"no high clouds observed", @"cloud type remark");
-    else highString = [NSString localizedStringWithFormat:NSLocalizedString(@"high %@ clouds", @"cloud type remark"),
+        highString = MDLocalizedString(@"METAR.Remark.CloudTypes.High.None", nil);
+    else highString = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.CloudTypes.High", nil),
                        [self localizedHighCloudType:self.high]];
     
     return [@[lowString, midString, highString]
-            componentsJoinedByString:NSLocalizedString(@", ", @"list separator")];
+            componentsJoinedByString:MDLocalizedString(@"Common.ListSeparator", nil)];
 }
 
 - (NSString *) localizedLowCloudType:(LowCloudType)type {
     switch (type) {
         case LowCbCal:
-            return NSLocalizedString(@"cumulonimbus calvus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CbCal", nil);
         case LowCbCap:
-            return NSLocalizedString(@"cumulonimbus capillatus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CbCap", nil);
         case LowCuHum:
-            return NSLocalizedString(@"cumulus humilis", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CuHum", nil);
         case LowCuMedOrCon:
-            return NSLocalizedString(@"cumulus mediocris or cumulus congestus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CuMedCon", nil);
         case LowCuPlusSc:
-            return NSLocalizedString(@"cumulus and stratocumulus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CuSc", nil);
         case LowNone:
             return nil;
         case LowObscured:
-            return NSLocalizedString(@"obscured", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.Obscured", nil);
         case LowSc:
-            return NSLocalizedString(@"stratocumulus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.Sc", nil);
         case LowScCugen:
-            return NSLocalizedString(@"stratocumulus cumulogenitus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.ScCugen", nil);
         case LowStFra:
-            return NSLocalizedString(@"stratus fractus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.StFra", nil);
         case LowStNeb:
-            return NSLocalizedString(@"stratus nebulosus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.StNeb", nil);
     }
 }
 
 - (NSString *) localizedMiddleCloudType:(MiddleCloudType)type {
     switch (type) {
         case MiddleObscured:
-            return NSLocalizedString(@"obscured", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.Obscured", nil);
         case MiddleAc:
-            return NSLocalizedString(@"altocumulus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.Ac", nil);
         case MiddleAcCasOrFlo:
-            return NSLocalizedString(@"altocumulus castellanus or altocumulus floccus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.AcCasFlo", nil);
         case MiddleAcChaoticSky:
-            return NSLocalizedString(@"chaotic", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.Chaotic", nil);
         case MiddleAcCugen:
-            return NSLocalizedString(@"altocumulus cumulogenitus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.AcCugen", nil);
         case MiddleAcLen:
-            return NSLocalizedString(@"altocumulus lenticularis", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.AcLen", nil);
         case MiddleAcPe:
-            return NSLocalizedString(@"altocumulus perlucidus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.AcPe", nil);
         case MiddleAcPlusAcAs:
-            return NSLocalizedString(@"altocumulus plus altocumulus/altostratus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.AcPlusAcAs", nil);
         case MiddleAsOp:
-            return NSLocalizedString(@"altostratus opacus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.AcOp", nil);
         case MiddleAsTr:
-            return NSLocalizedString(@"altostratus translucidus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.AsTr", nil);
         case MiddleNone:
             return nil;
     }
@@ -125,25 +125,25 @@ static NSString *CloudTypesRegex = @"\\b8\\/(\\d)(\\d|\\/)(\\d|\\/)\\s*";
 - (NSString *) localizedHighCloudType:(HighCloudType)type {
     switch (type) {
         case HighObscured:
-            return NSLocalizedString(@"obscured", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.Obscured", nil);
         case HighCc:
-            return NSLocalizedString(@"cirrocumulus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.Cc", nil);
         case HighCiFib:
-            return NSLocalizedString(@"cirrus fibratus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CiFib", nil);
         case HighCiInc:
-            return NSLocalizedString(@"cirrus incus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CiInc", nil);
         case HighCiSpi:
-            return NSLocalizedString(@"cirrus spissatus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CiSpi", nil);
         case HighCiUnc:
-            return NSLocalizedString(@"cirrus uncinus", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CiUnc", nil);
         case HighCsIncreasingGreater45:
-            return NSLocalizedString(@"cirrostratus increasing > 45° above horizon", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CsIncG45", nil);
         case HighCsIncreasingLess45:
-            return NSLocalizedString(@"cirrostratus increasing < 45° above horizon", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CsIncL45", nil);
         case HighCsPartialCover:
-            return NSLocalizedString(@"cirrostratus with partial coverage", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CsPartial", nil);
         case HighCsTotalCover:
-            return NSLocalizedString(@"cirrostratus with total coverage", @"cloud type");
+            return MDLocalizedString(@"METAR.Remark.CloudTypes.Type.CsTotal", nil);
         case HighNone:
             return nil;
     }

@@ -33,10 +33,10 @@ static NSString *PeriodicIceAccretionAmountRemarkRegex = @"\\bI([136])(\\d{3})\\
 
 - (NSString *) stringValue {
     if (self.amount == 0)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"trace ice accretion in the last %d hours", @"period"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PeriodicIceAccretionAmount.Trace", @"{period}"),
                 self.period];
     else
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%0.2f inches of ice accretion in the last %d hours", @"accretion amount and period"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PeriodicIceAccretionAmount", @"{amount}, {period}"),
                 self.amount, self.period];
 }
 

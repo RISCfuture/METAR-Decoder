@@ -24,7 +24,7 @@ static NSString *AircraftMishapRegex = @"\\(ACFT MSHP\\)\\s*";
 }
 
 - (NSString *) stringValue {
-    return NSLocalizedString(@"report taken due to aircraft mishap", @"remark");
+    return MDLocalizedString(@"METAR.Remark.AircraftMishap", @"remark");
 }
 
 @end

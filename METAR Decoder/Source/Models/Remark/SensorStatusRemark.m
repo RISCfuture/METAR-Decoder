@@ -44,21 +44,21 @@ static NSString *SensorStatusRegex = @"\\b(?:(RVRNO|PWINO|PNO|FZRANO|TSNO)|VISNO
 - (NSString *) stringValue {
     switch (self.type) {
         case SensorSecondaryCeiling:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"ceiling sensor for %@ not operating", @"remark (location)"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SensorStatus.CHI", @"{location}"),
                     self.secondaryLocation];
         case SensorSecondaryVisibility:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"visibility sensor for %@ not operating", @"remark (location)"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SensorStatus.VIS", @"{location}"),
                     self.secondaryLocation];
         case SensorFreezingRain:
-            return NSLocalizedString(@"freezing rain sensor not operating", @"remark");
+            return MDLocalizedString(@"METAR.Remark.SensorStatus.FZRA", nil);
         case SensorLightning:
-            return NSLocalizedString(@"lightning sensor not operating", @"remark");
+            return MDLocalizedString(@"METAR.Remark.SensorStatus.TS", nil);
         case SensorPresentWeather:
-            return NSLocalizedString(@"present weather identifier not operating", @"remark");
+            return MDLocalizedString(@"METAR.Remark.SensorStatus.PWI", nil);
         case SensorRain:
-            return NSLocalizedString(@"tipping bucket rain gauge not operating", @"remark");
+            return MDLocalizedString(@"METAR.Remark.SensorStatus.P", nil);
         case SensorRVR:
-            return NSLocalizedString(@"runway visual range missing", @"remark");
+            return MDLocalizedString(@"METAR.Remark.SensorStatus.RVR", nil);
     }
 }
 

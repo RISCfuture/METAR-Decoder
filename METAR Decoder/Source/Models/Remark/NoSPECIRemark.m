@@ -24,7 +24,7 @@ static NSString *NoSPECIRegex = @"\\bNOSPECI\\b\\s*";
 }
 
 - (NSString *) stringValue {
-    return NSLocalizedString(@"no SPECI reports will be made until the next scheduled METAR", @"remark");
+    return MDLocalizedString(@"METAR.Remark.NoSPECI", nil);
 }
 
 @end

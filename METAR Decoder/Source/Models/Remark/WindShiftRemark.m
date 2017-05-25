@@ -28,9 +28,9 @@ static NSString *WindShiftRegex = @"\\bWSHFT " REMARK_TIME_REGEX @"(?: (FROPA))?
 - (NSString *) stringValue {
     NSString *dateString = [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:date]];
     if (self.frontalPassage)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"wind shift at %@ due to frontal passage", @"remark: time"), dateString];
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.WindShift.FrontalPassage", @"{time}"), dateString];
     else
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"wind shift at %@", @"remark: time"), dateString];
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.WindShift", @"{time}"), dateString];
         
 }
 

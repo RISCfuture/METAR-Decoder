@@ -51,21 +51,21 @@ static NSString *ThunderstormLocationRegex = @"\\bTS(?: " REMARK_PROXIMITY_REGEX
     if (self.directions) {
         if (self.proximity != ProximityUnknown) {
             if (self.movingDirection == DirectionNone) {
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"thunderstorms %@ %@", @"proximity, direction"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.ProximityDirection", @"{proximity}, {direction}"),
                         [self localizedProximity:self.proximity],
                         [self localizedDirections:self.directions]];
             } else {
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"thunderstorms %@ %@ moving %@", @"proximity, direction, movement direction"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.ProximityDirectionMoving", @"{proximity}, {direction}, {movement direction}"),
                         [self localizedProximity:self.proximity],
                         [self localizedDirections:self.directions],
                         [self localizedDirection:self.movingDirection]];
             }
         } else {
             if (self.movingDirection == DirectionNone) {
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"thunderstorms %@", @"direction"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.Direction", @"{direction}"),
                         [self localizedDirections:self.directions]];
             } else {
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"thunderstorms %@ moving %@", @"direction, movement direction"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.DirectionMoving", @"{direction}, {movement direction}"),
                         [self localizedDirections:self.directions],
                         [self localizedDirection:self.movingDirection]];
             }
@@ -73,10 +73,10 @@ static NSString *ThunderstormLocationRegex = @"\\bTS(?: " REMARK_PROXIMITY_REGEX
     } else {
         if (self.proximity != ProximityUnknown) {
             if (self.movingDirection == DirectionNone) {
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"thunderstorms %@ ", @"proximity"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.Proximity ", @"{proximity}"),
                         [self localizedProximity:self.proximity]];
             } else {
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"thunderstorms %@ moving %@", @"proximity, movement direction"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.ProximityMoving", @"{proximity}, {movement direction}"),
                         [self localizedProximity:self.proximity],
                         [self localizedDirection:self.movingDirection]];
             }
@@ -84,7 +84,7 @@ static NSString *ThunderstormLocationRegex = @"\\bTS(?: " REMARK_PROXIMITY_REGEX
             if (self.movingDirection == DirectionNone) {
                 return nil; // impossible case
             } else {
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"thunderstorms moving %@", @"movement direction"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.Moving", @"{movement direction}"),
                         [self localizedDirection:self.movingDirection]];
             }
         }

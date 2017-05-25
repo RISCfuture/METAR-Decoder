@@ -29,7 +29,7 @@ static NSString *WaterEquivalentDepthRegex = @"\\b933(\\d{3})\\b\\s*";
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"%0.1f inches water equivalent snow depth", @"depth in inches"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.WaterEquivalentDepth", @"{depth}"),
             self.depth];
 }
 

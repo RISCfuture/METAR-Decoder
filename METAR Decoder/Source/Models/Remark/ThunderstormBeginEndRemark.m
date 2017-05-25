@@ -64,22 +64,22 @@ typedef enum _ThunderstormEventType {
         switch (event.type) {
             case ThunderstormEventTypeBegan:
                 if (eventIndex == 0)
-                    description = [NSString localizedStringWithFormat:NSLocalizedString(@"began at %@", @"thunderstorm event"),
+                    description = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormBeginEnd.Type.Began", @"{time}"),
                                                   [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:event.date]]];
                 else
-                    description = [NSString localizedStringWithFormat:NSLocalizedString(@"began again at %@", @"thunderstorm event"),
+                    description = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormBeginEnd.Type.BeganAgain", @"{time}"),
                                    [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:event.date]]];
                 break;
             case ThunderstormEventTypeEnded:
-                description = [NSString localizedStringWithFormat:NSLocalizedString(@"ended at %@", @"thunderstorm event"),
+                description = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormBeginEnd.Type.Ended", @"{time}"),
                                [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:event.date]]];
                 break;
         }
         [eventDescriptions addObject:description];
     }];
 
-    NSString *combinedDescriptions = [eventDescriptions componentsJoinedByString:NSLocalizedString(@" and ", @"list joiner")];
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"thunderstorms %@", @"remark"), combinedDescriptions];
+    NSString *combinedDescriptions = [eventDescriptions componentsJoinedByString:MDLocalizedString(@"Common.PairSeparator", nil)];
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormsBeginEnd", @"{began/ended string}"), combinedDescriptions];
 }
 
 @end

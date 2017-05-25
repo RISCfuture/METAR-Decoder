@@ -23,7 +23,7 @@ static NSString *MaintenanceRegex = @"\\$$";
 }
 
 - (NSString *) stringValue {
-    return NSLocalizedString(@"station requires maintenance", @"remark");
+    return MDLocalizedString(@"METAR.Remark.Maintenance", nil);
 }
 
 @end

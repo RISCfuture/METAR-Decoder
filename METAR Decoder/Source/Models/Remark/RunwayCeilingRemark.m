@@ -32,7 +32,7 @@ static NSString *RunwayCeilingRegex = @"\\bCIG (\\d{3}) RWY(\\d{1,2})\\b\\s*";
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"ceiling at runway %@ is %lu feet", @"runway, ceiling"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.RunwayCeiling", @"{runway}, {ceiling}"),
             self.runwayName,
             self.height];
 }

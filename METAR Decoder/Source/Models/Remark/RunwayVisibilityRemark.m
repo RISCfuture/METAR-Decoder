@@ -26,7 +26,7 @@ static NSString *RunwayVisibilityRegex = @"\\bVIS " METAR_VISIBILITY_REGEX @" RW
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"runway %@ visibility %@ SM", @"remark"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.RunwayVisibility", @"{runway}, {visibility}"),
             self.runway, [self.distance stringValue]];
 }
 

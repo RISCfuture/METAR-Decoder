@@ -35,49 +35,47 @@ static NSString *PressureTendencyRegex = @"\\b5(\\d)(\\d{3})\\b\\s*";
 - (NSString *) stringValue {
     switch (self.character) {
         case PressureChangeAcceleratingDown:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure %0.1f hPa lower than three hours ago and decreasing more rapidly",
-                                                                @"pressure tendency remark"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.AcceleratingDown",
+                                                                @"{pressure change}"),
                     self.pressureChange];
         case PressureChangeAcceleratingUp:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure %0.1f hPa higher than three hours ago and increasing more rapidly",
-                                                                @"pressure tendency remark"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.AcceleratingUp",
+                                                                @"{pressure change}"),
                     self.pressureChange];
         case PressureChangeDeceleratingDown:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure %0.1f hPa lower than three hours ago and decreasing more slowly",
-                                                                @"pressure tendency remark"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.DeceleratingDown",
+                                                                @"{pressure change}"),
                     self.pressureChange];
         case PressureChangeDeceleratingUp:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure %0.1f hPa higher than three hours ago and increasing more slowly",
-                                                                @"pressure tendency remark"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.DeceleratingUp",
+                                                                @"{pressure change}"),
                     self.pressureChange];
         case PressureChangeInflectedDown:
             if (self.pressureChange == 0)
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure same as three hours ago after increasing then decreasing",
-                                                                    @"pressure tendency remark"),
-                        self.pressureChange];
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.InflectedDownNoChange",
+                                                                    nil)];
             else
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure still %0.1f hPa higher than three hours ago despite decreasing",
-                                                                    @"pressure tendency remark"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.InflectedDown",
+                                                                    @"{pressure change}"),
                         self.pressureChange];
         case PressureChangeInflectedUp:
             if (self.pressureChange == 0)
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure same as three hours ago after decreasing then increasing",
-                                                                    @"pressure tendency remark"),
-                        self.pressureChange];
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.InflectedUpNoChange",
+                                                                    nil)];
             else
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure still %0.1f hPa lower than three hours ago despite increasing",
-                                                                    @"pressure tendency remark"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.InflectedUp",
+                                                                    @"{pressure change}"),
                         self.pressureChange];
         case PressureChangeSteadyDown:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure %0.1f hPa lower than three hours ago and decreasing",
-                                                                @"pressure tendency remark"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.SteadyDown",
+                                                                @"{pressure change}"),
                     self.pressureChange];
         case PressureChangeSteadyUp:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"barometric pressure %0.1f hPa higher than three hours ago and increasing",
-                                                                @"pressure tendency remark"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PressureTendency.SteadyUp",
+                                                                @"{pressure change}"),
                     self.pressureChange];
         case PressureChangeZero:
-            return NSLocalizedString(@"barometric pressure stable", @"pressure tendency remark");
+            return MDLocalizedString(@"METAR.Remark.PressureTendency.Stable", nil);
     }
 }
 

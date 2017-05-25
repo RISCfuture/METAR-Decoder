@@ -28,7 +28,7 @@ static NSString *HailstoneSizeRegex = @"\\bGR " METAR_VISIBILITY_REGEX @"\\b\\s*
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"hail %@ inches in diameter", @"remark"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.HailstoneSize", @"{diameter}"),
             [self.size stringValue]];
 }
 

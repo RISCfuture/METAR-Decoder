@@ -33,7 +33,7 @@ static NSString *RapidSnowIncreaseRegex = @"\\bSNINCR (\\d+)\\/(\\d+)\\b\\s*";
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"rapid snow increase: %lu inches in the past hour (%lu inches total)", @"snow depths"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.RapidSnowIncrease", @"{snow past hour}, {snow total}"),
             self.depthIncrease, self.totalDepth];
 }
 

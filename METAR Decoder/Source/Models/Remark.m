@@ -27,7 +27,7 @@ static NSMutableSet *subclasses = nil;
 }
 
 - (NSString *) stringValue {
-    return NSLocalizedString(@"Unknown METAR remark", nil);
+    return MDLocalizedString(@"METAR.Remark.Unknown", nil);
 }
 
 - (NSTextCheckingResult *) matchRemarks:(NSString *)remarks withRegex:(NSString *)regexString {

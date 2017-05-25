@@ -36,11 +36,11 @@ static NSString *DailyPrecipitationAmountRegex = @"\\b7(?:(\\d{4})\\b|(\\/{4}))\
 
 - (NSString *) stringValue {
     if (self.amount == IndeterminateAmount)
-        return NSLocalizedString(@"indeterminate precipitation in the last 24 hours", @"remark");
+        return MDLocalizedString(@"METAR.Remark.DailyPrecipitationAmount.Indeterminate", nil);
     if (self.amount == 0)
-        return NSLocalizedString(@"trace precipitation in the last 24 hours", @"remark");
+        return MDLocalizedString(@"METAR.Remark.DailyPrecipitationAmount.Trace", nil);
     else
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%0.2f inches of precipitation in the last 24 hours", @"precipitation amount"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.DailyPrecipitationAmount", @"{precipitation amount}"),
                 self.amount];
 }
 

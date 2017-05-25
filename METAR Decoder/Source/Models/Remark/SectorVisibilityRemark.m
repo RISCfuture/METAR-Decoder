@@ -27,7 +27,7 @@ static NSString *SectorVisibilityRegex = @"\\bVIS " REMARK_DIRECTION_REGEX @" " 
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ sector visibility %@ SM", @"remark"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SectorVisibility", @"{direction}, {visibility}"),
             [self localizedDirection:self.direction], [self.distance stringValue]];
 }
 

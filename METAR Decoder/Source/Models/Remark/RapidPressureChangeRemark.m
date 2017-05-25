@@ -2,7 +2,7 @@
 
 // PRESRR
 // PRESFR
-static NSString *RapidPressureChangeRegex = @"\\b(PRESRR|PRESFR)\\b\\s*";
+static NSString *RapidPressureChangeRegex = @"\\b(PRES[RF]R)\\b\\s*";
 
 @implementation RapidPressureChangeRemark
 
@@ -31,9 +31,9 @@ static NSString *RapidPressureChangeRegex = @"\\b(PRESRR|PRESFR)\\b\\s*";
 
 - (NSString *) stringValue {
     if (self.rising)
-        return NSLocalizedString(@"pressure rising rapidly", @"remark");
+        return MDLocalizedString(@"METAR.Remark.RapidPressureChange.Rising", nil);
     else
-        return NSLocalizedString(@"pressure falling rapidly", @"remark");
+        return MDLocalizedString(@"METAR.Remark.RapidPressureChange.Falling", nil);
 }
 
 @end

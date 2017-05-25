@@ -96,24 +96,24 @@ static NSString *PrecipitationEventRegex = @"([BE])" REMARK_TIME_REGEX;
     NSArray *strings = [events map:^id(PrecipitationEvent *event) {
         NSString *precipString;
         if (event.descriptor != DescriptorUnspecified)
-            precipString = [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@", @"precipitation descriptor + type"),
+            precipString = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PrecipitationBeginEnd.Description", @"{descriptor}, {type}"),
                             [self.parent localizedPrecipitationDescriptor:event.descriptor],
                             [self.parent localizedPrecipitationType:event.precipitationType]];
         else precipString = [self.parent localizedPrecipitationType:event.precipitationType];
         
         switch (event.eventType) {
             case EventBegan:
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ began at %@", @"precipitation event: type, time"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PrecipitationBeginEnd.Began", @"{precipitation}, {time}"),
                         precipString,
                         [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:event.time]]];
             case EventEnded:
-                return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ ended at %@", @"precipitation event: type, time"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PrecipitationBeginEnd.Ended", @"{precipitation}, {time}"),
                         precipString,
                         [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:event.time]]];
         }
     }];
     
-    return [strings componentsJoinedByString:NSLocalizedString(@", ", @"list separator")];
+    return [strings componentsJoinedByString:MDLocalizedString(@"Common.ListSeparator", nil)];
 }
 
 @end

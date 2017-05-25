@@ -55,16 +55,16 @@ static NSString *LightningRegex = @"\\b(?:" REMARK_FREQUENCY_REGEX @" )?LTG((?:C
 - (NSString *) stringValue {
     NSString *lightningString;
     if (self.frequency == FrequencyUnknown)
-        lightningString = NSLocalizedString(@"lightning", @"lightning remark: frequency unknown");
+        lightningString = MDLocalizedString(@"METAR.Remark.Lightning.Description.NoFrequency", nil);
     else
-        lightningString = [NSString localizedStringWithFormat:NSLocalizedString(@"%@ lightning", @"lightning remark: frequency known"),
+        lightningString = [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Lightning.Description.WithFrequency", nil),
                            [self localizedFrequency:self.frequency]];
     
     NSString *typesString;
     if (self.types.count > 0)
         typesString = [[[self.types map:^(id typeNumber) {
             return [self localizedType:[(NSNumber *)typeNumber intValue]];
-        }] allObjects] componentsJoinedByString:NSLocalizedString(@", ", @"list separator")];
+        }] allObjects] componentsJoinedByString:MDLocalizedString(@"Common.ListSeparator", nil)];
     else typesString = nil;
     
     NSString *directionString;
@@ -78,36 +78,36 @@ static NSString *LightningRegex = @"\\b(?:" REMARK_FREQUENCY_REGEX @" )?LTG((?:C
         proximityString = [self localizedProximity:self.proximity];
     
     if (typesString && directionString && proximityString)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ (%@) %@ %@", @"remark: lightning frequency, type, proximity, direction"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Lightning.TypeProximityDirection", @"{description}, {type}, {proximity}, {direction}"),
                 lightningString,
                 typesString,
                 proximityString,
                 directionString];
     else if (typesString && directionString)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ (%@) %@", @"remark: lightning frequency, type, direction"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Lightning.TypeDirection", @"{description}, {type}, {direction}"),
                 lightningString,
                 typesString,
                 directionString];
     else if (typesString && proximityString)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ (%@) %@", @"remark: lightning frequency, type, proximity"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Lightning.TypeProximity", @"{description}, {type}, {proximity}"),
                 lightningString,
                 typesString,
                 proximityString];
     else if (directionString && proximityString)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@ %@", @"remark: lightning frequency, proximity, direction"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Lightning.ProximityDirection", @"{description}, {proximity}, {direction}"),
                 lightningString,
                 proximityString,
                 directionString];
     else if (typesString)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ (%@)", @"remark: lightning frequency, type"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Lightning.Type", @"{description}, {type}"),
                 lightningString,
                 typesString];
     else if (directionString)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@", @"remark: lightning frequency, direction"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Lightning.Direction", @"{description}, {direction}"),
                 lightningString,
                 directionString];
     else if (proximityString)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ %@", @"remark: lightning frequency, proximity"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Lightning.Proximity", @"{description}, {proximity}"),
                 lightningString,
                 directionString];
     else
@@ -121,13 +121,13 @@ static NSString *LightningRegex = @"\\b(?:" REMARK_FREQUENCY_REGEX @" )?LTG((?:C
 - (NSString *) localizedType:(LightningType)type {
     switch (type) {
         case LightningCloudToAir:
-            return NSLocalizedString(@"cloud-to-air", @"lightning type");
+            return MDLocalizedString(@"METAR.Remark.Lightning.Type.CA", nil);
         case LightningCloudToCloud:
-            return NSLocalizedString(@"cloud-to-cloud", @"lightning type");
+            return MDLocalizedString(@"METAR.Remark.Lightning.Type.CC", nil);
         case LightningCloudToGround:
-            return NSLocalizedString(@"cloud-to-ground", @"lightning type");
+            return MDLocalizedString(@"METAR.Remark.Lightning.Type.CG", nil);
         case LightningWithinCloud:
-            return NSLocalizedString(@"in-cloud", @"lightning type");
+            return MDLocalizedString(@"METAR.Remark.Lightning.Type.IC", nil);
     }
 }
 

@@ -37,9 +37,9 @@ static NSString *ObservedVisibilityRegex = @"\\b(TWR|SFC) VIS " METAR_VISIBILITY
 - (NSString *) stringValue {
     switch (self.source) {
         case VisibilitySourceTower:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"tower visibility %@ SM", @"remark"), [self.distance stringValue]];
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ObservedVisibility.Tower", @"{distance}"), [self.distance stringValue]];
         case VisibilitySourceSurface:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"surface visibility %@ SM", @"remark"), [self.distance stringValue]];
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ObservedVisibility.Surface", @"{distance}"), [self.distance stringValue]];
     }
     
     return nil;

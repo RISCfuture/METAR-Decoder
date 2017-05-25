@@ -30,7 +30,7 @@ static NSString *VariablePrevailingVisibilityRegex = @"\\bVIS " METAR_VISIBILITY
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"prevailing visibility varying from %@ to %@ SM", @"remark"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.VariablePrevailingVisibility", @"{low viz}, {high viz}"),
             [self.low stringValue], [self.high stringValue]];
 }
 

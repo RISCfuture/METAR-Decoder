@@ -33,7 +33,7 @@ static NSString *VariableCeilingHeightRegex = @"\\bCIG (\\d{3})V(\\d{3})\\b\\s*"
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"ceiling variable between %lu and %lu feet", @"low and high ceilings"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.VariableCeilingHeight", @"{low height}, {high height}"),
             self.low, self.high];
 }
 

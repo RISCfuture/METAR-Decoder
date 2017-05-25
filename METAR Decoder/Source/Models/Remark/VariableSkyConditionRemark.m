@@ -44,11 +44,11 @@ static NSString *VariableSkyConditionRegex = @"\\b" COVERAGE_REGEX @"(\\d{3})? V
 
 - (NSString *) stringValue {
     if (self.height == HeightNotSpecified)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"sky coverage varies between %@ and %@", @"coverages"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.VariableSkyCondition.NoHeight", @"{coverage}, {coverage}"),
                 [self.parent localizedCoverage:self.coverage1],
                 [self.parent localizedCoverage:self.coverage2]];
     else
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"sky coverage varies between %@ and %@ at %ld feet", @"coverages and height"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.VariableSkyCondition.WithHeight", @"{coverage}, {coverage}, {height}"),
                 [self.parent localizedCoverage:self.coverage1],
                 [self.parent localizedCoverage:self.coverage2],
                 self.height];

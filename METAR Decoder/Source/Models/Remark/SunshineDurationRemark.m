@@ -29,7 +29,7 @@ static NSString *SunshineDurationRegex = @"\\b98(\\d{3})\\b\\s*";
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"%lu minutes of sunshine during the previous calendar day", @"remark"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SunshineDuration", @"{duration}"),
             self.duration];
 }
 

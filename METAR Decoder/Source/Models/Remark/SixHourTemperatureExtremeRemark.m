@@ -41,10 +41,10 @@ static NSString *SixHourTempertureExtremeRegex = @"\\b(1|2)(0|1)(\\d{3})\\b\\s*"
 - (NSString *) stringValue {
     switch (self.type) {
         case ExtremeLow:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"six-hour temperature minimum is %0.1f °C", @"remark"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SixHourTemperature.Minimum", @"{temperature}"),
                     self.temperature];
         case ExtremeHigh:
-            return [NSString localizedStringWithFormat:NSLocalizedString(@"six-hour temperature maximum is %0.1f °C", @"remark"),
+            return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SixHourTemperature.Maximum", @"{temperature}"),
                     self.temperature];
     }
 }

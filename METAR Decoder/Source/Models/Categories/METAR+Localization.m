@@ -5,21 +5,21 @@
 - (NSString *) localizedPrecipitationDescriptor:(PrecipitationDescriptor)descriptor {
     switch (descriptor) {
         case DescriptorThunderstorm:
-            return NSLocalizedString(@"thunderstorm", @"precipitation descriptor");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Descriptor.TS", nil);
         case DescriptorShower:
-            return NSLocalizedString(@"showering", @"precipitation descriptor");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Descriptor.SH", nil);
         case DescriptorShallow:
-            return NSLocalizedString(@"shallow", @"precipitation descriptor");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Descriptor.MI", nil);
         case DescriptorPatches:
-            return NSLocalizedString(@"patchy", @"precipitation descriptor");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Descriptor.BC", nil);
         case DescriptorPartial:
-            return NSLocalizedString(@"partial", @"precipitation descriptor");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Descriptor.PR", nil);
         case DescriptorLowDrifting:
-            return NSLocalizedString(@"low, drifting", @"precipitation descriptor");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Descriptor.DR", nil);
         case DescriptorFreezing:
-            return NSLocalizedString(@"freezing", @"precipitation descriptor");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Descriptor.FZ", nil);
         case DescriptorBlowing:
-            return NSLocalizedString(@"blowing", @"precipitation descriptor");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Descriptor.BL", nil);
         default:
             return nil;
     }
@@ -28,23 +28,23 @@
 - (NSString *) localizedPrecipitationType:(PrecipitationType)type {
     switch (type) {
         case PrecipitationRain:
-            return NSLocalizedString(@"rain", @"precipitation type");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Type.RA", nil);
         case PrecipitationDrizzle:
-            return NSLocalizedString(@"drizzle", @"precipitation type");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Type.DZ", nil);
         case PrecipitationSnow:
-            return NSLocalizedString(@"snow", @"precipitation type");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Type.SN", nil);
         case PrecipitationSnowGrains:
-            return NSLocalizedString(@"snow grains", @"precipitation type");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Type.SG", nil);
         case PrecipitationIceCrystals:
-            return NSLocalizedString(@"ice crystals", @"precipitation type");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Type.IC", nil);
         case PrecipitationIcePellets:
-            return NSLocalizedString(@"ice pellets", @"precipitation type");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Type.PE", nil);
         case PrecipitationHail:
-            return NSLocalizedString(@"hail", @"precipitation type");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Type.GR", nil);
         case PrecipitationSmallHail:
-            return NSLocalizedString(@"small hail", @"precipitation type");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Type.GS", nil);
         case PrecipitationUnknown:
-            return NSLocalizedString(@"unknown precipitation", @"precipitation type");
+            return MDLocalizedString(@"METAR.Common.Precipitation.Type.UP", nil);
         default:
             return nil;
     }
@@ -53,13 +53,13 @@
 - (NSString *) localizedCoverage:(CoverageAmount)coverage {
     switch (coverage) {
         case CoverageFew:
-            return NSLocalizedString(@"few", @"coverage amount");
+            return MDLocalizedString(@"METAR.Common.Coverage.FEW", nil);
         case CoverageScattered:
-            return NSLocalizedString(@"scattered", @"coverage amount");
+            return MDLocalizedString(@"METAR.Common.Coverage.SCT", nil);
         case CoverageBroken:
-            return NSLocalizedString(@"broken", @"coverage amount");
+            return MDLocalizedString(@"METAR.Common.Coverage.BKN", nil);
         case CoverageOvercast:
-            return NSLocalizedString(@"overcast", @"coverage amount");
+            return MDLocalizedString(@"METAR.Common.Coverage.OVC", nil);
         default:
             return nil;
     }
@@ -68,21 +68,21 @@
 - (NSString *) localizedObscuration:(ObscurationType)obscuration {
     switch (obscuration) {
         case ObscurationSpray:
-            return NSLocalizedString(@"spray", @"obscuration type");
+            return MDLocalizedString(@"METAR.Common.Obscuration.PY", nil);
         case ObscurationSand:
-            return NSLocalizedString(@"sand", @"obscuration type");
+            return MDLocalizedString(@"METAR.Common.Obscuration.SA", nil);
         case ObscurationFog:
-            return NSLocalizedString(@"fog", @"obscuration type");
+            return MDLocalizedString(@"METAR.Common.Obscuration.FG", nil);
         case ObscurationHaze:
-            return NSLocalizedString(@"haze", @"obscuration type");
+            return MDLocalizedString(@"METAR.Common.Obscuration.HZ", nil);
         case ObscurationMist:
-            return NSLocalizedString(@"mist", @"obscuration type");
+            return MDLocalizedString(@"METAR.Common.Obscuration.BR", nil);
         case ObscurationSmoke:
-            return NSLocalizedString(@"smoke", @"obscuration type");
+            return MDLocalizedString(@"METAR.Common.Obscuration.FU", nil);
         case ObscurationVolcanicAsh:
-            return NSLocalizedString(@"volcanic ash", @"obscuration type");
+            return MDLocalizedString(@"METAR.Common.Obscuration.VA", nil);
         case ObscurationWidespreadDust:
-            return NSLocalizedString(@"widespread dust", @"obscuration type");
+            return MDLocalizedString(@"METAR.Common.Obscuration.DU", nil);
     }
 }
 

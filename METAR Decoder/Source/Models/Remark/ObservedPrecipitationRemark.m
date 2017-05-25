@@ -43,19 +43,19 @@ static NSString *VirgaRegex = @"\\b(VIRGA|SHRA|SH)(?: " REMARK_PROXIMITY_REGEX "
 
 - (NSString *) stringValue {
     if (self.directions && self.proximity) {
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ observed %@ %@", @"remark: proximity, direction"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ObservedPrecipitation.ProximityDirection", @"{type}, {proximity}, {direction}"),
                 [self localizedType],
                 [self localizedProximity:self.proximity],
                 [self localizedDirections:self.directions]];
     }
     else if (self.directions) {
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ observed %@", @"remark: direction"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ObservedPrecipitation.Direction", @"{type}, {direction}"),
                 [self localizedType],
                 [self localizedDirections:self.directions]];
 
     }
     else {
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ observed", @"remark"), [self localizedType]];
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"%METAR.Remark.ObservedPrecipitation.TypeOnly", @"{type}"), [self localizedType]];
 
     }
 }
@@ -63,11 +63,11 @@ static NSString *VirgaRegex = @"\\b(VIRGA|SHRA|SH)(?: " REMARK_PROXIMITY_REGEX "
 - (NSString *) localizedType {
     switch (self.type) {
         case ObservedPrecipitationTypeVirga:
-            return NSLocalizedString(@"virga", @"observed precipitation type");
+            return MDLocalizedString(@"METAR.Remark.ObservedPrecipitation.Type.VIRGA", nil);
         case ObservedPrecipitationTypeShowers:
-            return NSLocalizedString(@"showers", @"observed precipitation type");
+            return MDLocalizedString(@"METAR.Remark.ObservedPrecipitation.Type.SH", nil);
         case ObservedPrecipitationTypeShoweringRain:
-            return NSLocalizedString(@"rain showers", @"observed precipitation type");
+            return MDLocalizedString(@"METAR.Remark.ObservedPrecipitation.Type.SHRA", nil);
     }
 }
 

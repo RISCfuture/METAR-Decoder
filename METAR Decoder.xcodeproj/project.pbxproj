@@ -19,6 +19,8 @@
 		01749CA71932B24200C5A3B4 /* WindShiftRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 01749CA61932B24200C5A3B4 /* WindShiftRemark.m */; };
 		01749CAA1932B24C00C5A3B4 /* ObservedVisibilityRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 01749CA91932B24C00C5A3B4 /* ObservedVisibilityRemark.m */; };
 		01749CAD1932CD8D00C5A3B4 /* UnknownRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 01749CAC1932CD8D00C5A3B4 /* UnknownRemark.m */; };
+		01750E6D1F2070E900A34584 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01CC466719349CE8002DCF94 /* Localizable.strings */; };
+		01750E701F20732F00A34584 /* Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 01750E6F1F20732F00A34584 /* Bundle.m */; };
 		019293D31932DE5000447575 /* ImproperFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 019293D21932DE5000447575 /* ImproperFraction.m */; };
 		019293D61932DF6F00447575 /* VariablePrevailingVisibilityRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019293D51932DF6F00447575 /* VariablePrevailingVisibilityRemark.m */; };
 		019293DC1933266500447575 /* SectorVisibilityRemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 019293DB1933266500447575 /* SectorVisibilityRemark.m */; };
@@ -64,6 +66,16 @@
 		223F5CCC19304638004CF0E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223F5CCB19304638004CF0E7 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		01750E6A1F2070C800A34584 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 223F5CC019304638004CF0E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01750E631F2070AE00A34584;
+			remoteInfo = "METAR Decoder Resources";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		223F5CC619304638004CF0E7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -101,6 +113,10 @@
 		01749CA91932B24C00C5A3B4 /* ObservedVisibilityRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObservedVisibilityRemark.m; sourceTree = "<group>"; };
 		01749CAB1932CD8D00C5A3B4 /* UnknownRemark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnknownRemark.h; sourceTree = "<group>"; };
 		01749CAC1932CD8D00C5A3B4 /* UnknownRemark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnknownRemark.m; sourceTree = "<group>"; };
+		01750E641F2070AF00A34584 /* METAR Decoder Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "METAR Decoder Resources.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01750E661F2070AF00A34584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01750E6E1F20732F00A34584 /* Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bundle.h; sourceTree = "<group>"; };
+		01750E6F1F20732F00A34584 /* Bundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bundle.m; sourceTree = "<group>"; };
 		019293D01932DDE400447575 /* METARTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = METARTypes.h; sourceTree = "<group>"; };
 		019293D11932DE5000447575 /* ImproperFraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImproperFraction.h; sourceTree = "<group>"; };
 		019293D21932DE5000447575 /* ImproperFraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImproperFraction.m; sourceTree = "<group>"; };
@@ -193,6 +209,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		01750E611F2070AE00A34584 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		223F5CC519304638004CF0E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -264,6 +287,8 @@
 				01749C991932A33900C5A3B4 /* Rational.m */,
 				019293D11932DE5000447575 /* ImproperFraction.h */,
 				019293D21932DE5000447575 /* ImproperFraction.m */,
+				01750E6E1F20732F00A34584 /* Bundle.h */,
+				01750E6F1F20732F00A34584 /* Bundle.m */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -353,6 +378,14 @@
 			path = Remark;
 			sourceTree = "<group>";
 		};
+		01750E651F2070AF00A34584 /* METAR Decoder Resources */ = {
+			isa = PBXGroup;
+			children = (
+				01750E661F2070AF00A34584 /* Info.plist */,
+			);
+			path = "METAR Decoder Resources";
+			sourceTree = "<group>";
+		};
 		019293E61933313700447575 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +430,7 @@
 				01CC465F19346C58002DCF94 /* README.md */,
 				01749C7A19312E0900C5A3B4 /* METAR Decoder */,
 				01CC466619349CE8002DCF94 /* Resources */,
+				01750E651F2070AF00A34584 /* METAR Decoder Resources */,
 				223F5CCA19304638004CF0E7 /* Frameworks */,
 				223F5CC919304638004CF0E7 /* Products */,
 			);
@@ -406,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				223F5CC819304638004CF0E7 /* METAR Decoder */,
+				01750E641F2070AF00A34584 /* METAR Decoder Resources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -421,6 +456,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		01750E631F2070AE00A34584 /* METAR Decoder Resources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01750E691F2070AF00A34584 /* Build configuration list for PBXNativeTarget "METAR Decoder Resources" */;
+			buildPhases = (
+				01750E601F2070AE00A34584 /* Sources */,
+				01750E611F2070AE00A34584 /* Frameworks */,
+				01750E621F2070AE00A34584 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "METAR Decoder Resources";
+			productName = "METAR Decoder Resources";
+			productReference = 01750E641F2070AF00A34584 /* METAR Decoder Resources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		223F5CC719304638004CF0E7 /* METAR Decoder */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 223F5CD619304638004CF0E7 /* Build configuration list for PBXNativeTarget "METAR Decoder" */;
@@ -432,6 +484,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				01750E6B1F2070C800A34584 /* PBXTargetDependency */,
 			);
 			name = "METAR Decoder";
 			productName = "METAR Decoder";
@@ -446,6 +499,12 @@
 			attributes = {
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Tim Morgan";
+				TargetAttributes = {
+					01750E631F2070AE00A34584 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 223F5CC319304638004CF0E7 /* Build configuration list for PBXProject "METAR Decoder" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -460,11 +519,30 @@
 			projectRoot = "";
 			targets = (
 				223F5CC719304638004CF0E7 /* METAR Decoder */,
+				01750E631F2070AE00A34584 /* METAR Decoder Resources */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		01750E621F2070AE00A34584 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01750E6D1F2070E900A34584 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		01750E601F2070AE00A34584 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		223F5CC419304638004CF0E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,6 +550,7 @@
 				019293D61932DF6F00447575 /* VariablePrevailingVisibilityRemark.m in Sources */,
 				01CC463119342300002DCF94 /* AircraftMishapRemark.m in Sources */,
 				01749CA11932B22D00C5A3B4 /* TornadicActivityRemark.m in Sources */,
+				01750E701F20732F00A34584 /* Bundle.m in Sources */,
 				01CC46491934327F002DCF94 /* CloudTypesRemark.m in Sources */,
 				01749C8A19312E0900C5A3B4 /* main.m in Sources */,
 				01CC462819341EA4002DCF94 /* RunwayCeilingRemark.m in Sources */,
@@ -527,6 +606,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		01750E6B1F2070C800A34584 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01750E631F2070AE00A34584 /* METAR Decoder Resources */;
+			targetProxy = 01750E6A1F2070C800A34584 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		01CC466719349CE8002DCF94 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -539,6 +626,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		01750E671F2070AF00A34584 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "METAR Decoder Resources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "info.timothymorgan.METAR-Decoder-Resources";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		01750E681F2070AF00A34584 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = "METAR Decoder Resources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "info.timothymorgan.METAR-Decoder-Resources";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		223F5CD419304638004CF0E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -641,6 +768,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		01750E691F2070AF00A34584 /* Build configuration list for PBXNativeTarget "METAR Decoder Resources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01750E671F2070AF00A34584 /* Debug */,
+				01750E681F2070AF00A34584 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		223F5CC319304638004CF0E7 /* Build configuration list for PBXProject "METAR Decoder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

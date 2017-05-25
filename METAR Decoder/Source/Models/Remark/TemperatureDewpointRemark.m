@@ -44,10 +44,10 @@ static NSString *TemperatureDewpointRegex = @"\\bT(0|1)(\\d{3})(?:(0|1)(\\d{3}))
 
 - (NSString *) stringValue {
     if (self.dewpointUnknown)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"temperature %0.1f °C", @"remark"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.TemperatureDewpoint.TempOnly", @"{temperature}"),
                 self.temperature];
     else
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"temperature %0.1f °C, dewpoint %0.1f °C", @"remark"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.TemperatureDewpoint.TempDewpoint", @"{temperature}, {dewpoint}"),
                 self.temperature, self.dewpoint];
 }
 

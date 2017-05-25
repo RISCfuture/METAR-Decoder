@@ -38,7 +38,7 @@ static NSString *DailyTemperatureExtremeRegex = @"\\b4(0|1)(\\d{3})(0|1)(\\d{3})
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"24-hour temperature low %0.1f °C, high %0.1f °C", @"remark"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.DailyTemperatureExtreme", @"{low}, {high}"),
             self.low, self.high];
 }
 

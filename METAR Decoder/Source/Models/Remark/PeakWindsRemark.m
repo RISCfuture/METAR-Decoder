@@ -28,7 +28,7 @@ static NSString *PeakWindsRegex = @"\\bPK WND " METAR_WIND_REGEX @"\\/" REMARK_T
 
 - (NSString *) stringValue {
     NSString *dateString = [self.parent.timeOnlyFormatter stringFromDate:[self.parent.calendar dateFromComponents:self.date]];
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"peak winds %ld° at %ld knots (%@)", @"remark"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PeakWinds", @"{direction}, {speed}, {time}"),
             wind.direction, wind.speed, dateString];
 }
 

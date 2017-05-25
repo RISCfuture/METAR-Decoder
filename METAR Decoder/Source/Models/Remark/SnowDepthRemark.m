@@ -29,7 +29,7 @@ static NSString *SnowDepthRegex = @"\\b4\\/(\\d{3})\\b\\s*";
 }
 
 - (NSString *) stringValue {
-    return [NSString localizedStringWithFormat:NSLocalizedString(@"snow depth %lu inches", @"depth in inches"),
+    return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.SnowDepth", @"{depth}"),
             self.depth];
 }
 

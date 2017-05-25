@@ -4,15 +4,15 @@
 
 - (NSString *) localizedDirection:(RemarkDirection)direction {
     switch (direction) {
-        case DirectionNorth: return NSLocalizedString(@"north", @"direction");
-        case DirectionNortheast: return NSLocalizedString(@"northeast", @"direction");
-        case DirectionEast: return NSLocalizedString(@"east", @"direction");
-        case DirectionSoutheast: return NSLocalizedString(@"southeast", @"direction");
-        case DirectionSouth: return NSLocalizedString(@"south", @"direction");
-        case DirectionSouthwest: return NSLocalizedString(@"southwest", @"direction");
-        case DirectionWest: return NSLocalizedString(@"west", @"direction");
-        case DirectionNorthwest: return NSLocalizedString(@"northwest", @"direction");
-        case DirectionAll: return NSLocalizedString(@"all quadrants", @"direction");
+        case DirectionNorth: return MDLocalizedString(@"METAR.Remark.Common.Direction.N", nil);
+        case DirectionNortheast: return MDLocalizedString(@"METAR.Remark.Common.Direction.NE", @"direction");
+        case DirectionEast: return MDLocalizedString(@"METAR.Remark.Common.Direction.E", nil);
+        case DirectionSoutheast: return MDLocalizedString(@"METAR.Remark.Common.Direction.SE", @"direction");
+        case DirectionSouth: return MDLocalizedString(@"METAR.Remark.Common.Direction.S", nil);
+        case DirectionSouthwest: return MDLocalizedString(@"METAR.Remark.Common.Direction.SW", @"direction");
+        case DirectionWest: return MDLocalizedString(@"METAR.Remark.Common.Direction.W", nil);
+        case DirectionNorthwest: return MDLocalizedString(@"METAR.Remark.Common.Direction.NW", @"direction");
+        case DirectionAll: return MDLocalizedString(@"METAR.Remark.Common.Direction.ALQDS", nil);
         default:
             [[NSException exceptionWithName:@"METARException" reason:@"Unknown direction" userInfo:nil] raise];
     }
@@ -22,9 +22,9 @@
 
 - (NSString *) localizedFrequency:(RemarkFrequency)frequency {
     switch (frequency) {
-        case FrequencyOccasional: return NSLocalizedString(@"occasional", @"frequency");
-        case FrequencyFrequent: return NSLocalizedString(@"frequent", @"frequency");
-        case FrequencyConstant: return NSLocalizedString(@"constant", @"frequency");
+        case FrequencyOccasional: return MDLocalizedString(@"METAR.Remark.Common.Frequency.OCSNL", nil);
+        case FrequencyFrequent: return MDLocalizedString(@"METAR.Remark.Common.Frequency.FRQ", nil);
+        case FrequencyConstant: return MDLocalizedString(@"METAR.Remark.Common.Frequency.CSNT", nil);
         default:
             [[NSException exceptionWithName:@"METARException" reason:@"Unknown frequency" userInfo:nil] raise];
     }
@@ -33,9 +33,9 @@
 
 - (NSString *) localizedProximity:(RemarkProximity)proximity {
     switch (proximity) {
-        case ProximityOverhead: return NSLocalizedString(@"overhead", @"proximity");
-        case ProximityVicinity: return NSLocalizedString(@"in the vicinity", @"proximity");
-        case ProximityDistant: return NSLocalizedString(@"distant", @"proximity");
+        case ProximityOverhead: return MDLocalizedString(@"METAR.Remark.Common.Proximity.OHD", nil);
+        case ProximityVicinity: return MDLocalizedString(@"METAR.Remark.Common.Proximity.INVC", nil);
+        case ProximityDistant: return MDLocalizedString(@"METAR.Remark.Common.Proximity.DSNT", nil);
         default:
             [[NSException exceptionWithName:@"METARException" reason:@"Unknown proximity" userInfo:nil] raise];
     }
@@ -53,7 +53,7 @@
         firstUnsetDirection %= 360;
         if (firstUnsetDirection == 0) {
             // they're all set
-            return NSLocalizedString(@"all directions", @"range of directions");
+            return MDLocalizedString(@"METAR.Remark.Common.Direction.All", @"range of directions");
         }
     }
     
@@ -96,7 +96,7 @@
             default: {
                 RemarkDirection start = (RemarkDirection)ranges[rangeIndex].location;
                 RemarkDirection stop = (RemarkDirection)(ranges[rangeIndex].location + ranges[rangeIndex].length) % 360;
-                [directionStrings addObject:[NSString localizedStringWithFormat:NSLocalizedString(@"%@ through %@", @"direction range (e.g. north through west)"),
+                [directionStrings addObject:[NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.Common.DirectionRange.Thru", @"{direction}, {direction}"),
                                              [self localizedDirection:start],
                                              [self localizedDirection:stop]]];
                 break;
@@ -105,7 +105,7 @@
     }
     
     if (directionStrings.count == 0) return nil;
-    return [directionStrings componentsJoinedByString:NSLocalizedString(@" and ", @"direction list (e.g. north and west)")];
+    return [directionStrings componentsJoinedByString:MDLocalizedString(@"Common.PairSeparator", nil)];
 }
 
 @end

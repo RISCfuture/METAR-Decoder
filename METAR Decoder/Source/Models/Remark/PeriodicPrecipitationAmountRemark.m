@@ -58,17 +58,17 @@ static NSString *DailyPrecipitationAmountRegex = @"\\b6(?:(\\d{4})\\b|(\\/{4}))\
 - (NSString *) stringValue {
     NSString *periodString;
     if (self.period == UnknownPeriod)
-        periodString = NSLocalizedString(@"3 or 6", @"unknown period length for 3-/6-hour precip totals remark");
+        periodString = MDLocalizedString(@"METAR.Remark.PeriodicPrecipitationAmount.Period.Unknown", @"…hours");
     else periodString = [[NSNumber numberWithInteger:self.period] stringValue];
     
     if (self.amount == IndeterminateAmount)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"indeterminate precipitation in the last %@ hours", @"period length in hours"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PeriodicPrecipitationAmount.Indeterminate", @"{period}"),
                 periodString];
     if (self.amount == 0)
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"trace precipitation in the last %@ hours", @"period length in hours"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PeriodicPrecipitationAmount.Trace", @"{period}"),
                 periodString];
     else
-        return [NSString localizedStringWithFormat:NSLocalizedString(@"%0.2f inches of precipitation in the last %@ hours", @"precipitation amount, period length in hours"),
+        return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PeriodicPrecipitationAmount", @"{amount}, {period}"),
                 self.amount, periodString];
 }
 
