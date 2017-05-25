@@ -1,7 +1,7 @@
 #import "RunwayVisibilityRemark.h"
 
 // VIS 2 1/2 RWY11
-static NSString *RunwayVisibilityRegex = @"\\bVIS " METAR_VISIBILITY_REGEX @" RWY(\\d{1,2})\\b\\s*";
+static NSString *RunwayVisibilityRegex = @"\\bVIS " METAR_VISIBILITY_REGEX @" RWY ?(\\d{1,2}[LCR]?)\\b\\s*";
 
 @implementation RunwayVisibilityRemark
 

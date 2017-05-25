@@ -1,7 +1,7 @@
 #import "ThunderstormBeginEndRemark.h"
 
 // TSB0159E30
-static NSString *ThunderstormBeginEndRegex = @"\\bTS" THUNDERSTORM_BEGIN_END_EVENT_REGEX THUNDERSTORM_BEGIN_END_EVENT_REGEX @"\\b\\s*";
+static NSString *ThunderstormBeginEndRegex = @"\\bTS" THUNDERSTORM_BEGIN_END_EVENT_REGEX @"(?:" THUNDERSTORM_BEGIN_END_EVENT_REGEX @")?\\b\\s*";
 
 typedef enum _ThunderstormEventType {
     ThunderstormEventTypeBegan = 0,
@@ -87,6 +87,8 @@ typedef enum _ThunderstormEventType {
 @implementation ThunderstormBeginEndRemark (Private)
 
 - (ThunderstormEvent *)parseEventFromMatch:(NSTextCheckingResult *)match index:(NSUInteger)index inString:(NSString *)remarks {
+    if ([match rangeAtIndex:index].location == NSNotFound) return nil;
+
     ThunderstormEvent *event = [ThunderstormEvent new];
 
     NSString *eventTypeString = [remarks substringWithRange:[match rangeAtIndex:index]];
