@@ -1,7 +1,7 @@
 #import "ThunderstormBeginEndRemark.h"
 
 // TSB0159E30
-static NSString *ThunderstormBeginEndRegex = @"\\bTS" THUNDERSTORM_BEGIN_END_EVENT_REGEX @"(?:" THUNDERSTORM_BEGIN_END_EVENT_REGEX @")?\\b\\s*";
+static NSString *ThunderstormBeginEndRegex = @"\\bTS(" THUNDERSTORM_BEGIN_END_EVENT_REGEX @")+\\b\\s*";
 
 typedef enum _ThunderstormEventType {
     ThunderstormEventTypeBegan = 0,
@@ -24,7 +24,7 @@ typedef enum _ThunderstormEventType {
 
 @interface ThunderstormBeginEndRemark (Private)
 
-- (ThunderstormEvent *) parseEventFromMatch:(NSTextCheckingResult *)match index:(NSUInteger)index inString:(NSString *)remarks;
+- (void) parseEventsFromMatch:(NSTextCheckingResult *)match inString:(NSString *)remarks;
 
 @end
 
@@ -43,10 +43,7 @@ typedef enum _ThunderstormEventType {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:ThunderstormBeginEndRegex];
         if (!match) return (self = nil);
 
-        ThunderstormEvent *event1 = [self parseEventFromMatch:match index:1 inString:remarks];
-        if (event1) [self.events addObject:event1];
-        ThunderstormEvent *event2 = [self parseEventFromMatch:match index:4 inString:remarks];
-        if (event2) [self.events addObject:event2];
+        [self parseEventsFromMatch:match inString: remarks];
 
         [remarks deleteCharactersInRange:match.range];
     }
@@ -86,17 +83,29 @@ typedef enum _ThunderstormEventType {
 
 @implementation ThunderstormBeginEndRemark (Private)
 
-- (ThunderstormEvent *)parseEventFromMatch:(NSTextCheckingResult *)match index:(NSUInteger)index inString:(NSString *)remarks {
-    if ([match rangeAtIndex:index].location == NSNotFound) return nil;
+- (void) parseEventsFromMatch:(NSTextCheckingResult *)match inString:(NSString *)remarks {
+    if ([match rangeAtIndex:0].location == NSNotFound) return;
+    NSString *eventsString = [remarks substringWithRange:[match rangeAtIndex:0]];
+    NSUInteger index = 2;
 
+    while (index + 3 < eventsString.length) {
+        NSString *eventString = [eventsString substringWithRange:NSMakeRange(index, 3)];
+        ThunderstormEvent *event = [self parseEvent:eventString];
+        if (event) [self.events addObject:event];
+        index += 3;
+    }
+}
+
+- (ThunderstormEvent *)parseEvent:(NSString *)eventString {
     ThunderstormEvent *event = [ThunderstormEvent new];
 
-    NSString *eventTypeString = [remarks substringWithRange:[match rangeAtIndex:index]];
+    NSString *eventTypeString = [eventString substringWithRange:NSMakeRange(0, 1)];
     if ([eventTypeString isEqualToString:@"B"]) event.type = ThunderstormEventTypeBegan;
     else if ([eventTypeString isEqualToString:@"E"]) event.type = ThunderstormEventTypeEnded;
     else return nil;
 
-    event.date = [self.parent parseDateFromMatch:match index:index+1 inString:remarks];
+    NSString *dateString = [eventString substringFromIndex:1];
+    event.date = [self.parent dateFromString:dateString];
 
     return event;
 }
