@@ -3,9 +3,9 @@ int main(int argc, const char * argv[]) {
         NSString *airportCode;
 
         if (argc == 1) {
-            printf("Enter the ICAO code of an airport to decode.\n");
-            char code[5];
-            scanf("%4s", code);
+            printf("Enter the ICAO code of an airport to decode or a METAR string.\n");
+            char code[256];
+            scanf("%256[^\n]", code);
             airportCode = [NSString stringWithCString:code encoding:NSASCIIStringEncoding];
         }
         else {
@@ -13,11 +13,17 @@ int main(int argc, const char * argv[]) {
         }
 
         METARDecoder *decoder = [METARDecoder new];
-        METAR *METAR = [decoder loadMETARForAirport:airportCode];
-        NSLog(@"%@", METAR);
+        METAR *METAR;
+        if (airportCode.length <= 4) {
+            METAR = [decoder loadMETARForAirport:airportCode];
+        } else {
+            METAR = [decoder parseMETAR:airportCode];
+        }
+
+        //NSLog(@"%@", METAR);
         
         if (!METAR) {
-            printf("Bad airport code\n");
+            printf("Bad airport code or METAR\n");
             exit(1);
         }
         
