@@ -59,8 +59,9 @@ typedef struct _RemarkLocation {
 + (void) registerSubclass:(Class)klass;
 + (NSSet *) subclasses;
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR;
-- (NSString *) stringValue;
+- (instancetype) init NS_UNAVAILABLE;
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR NS_DESIGNATED_INITIALIZER;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringValue;
 
 - (NSTextCheckingResult *) matchRemarks:(NSString *)remarks withRegex:(NSString *)regexString;
 

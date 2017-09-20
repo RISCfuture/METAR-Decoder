@@ -12,16 +12,16 @@ static NSString *VariableCeilingHeightRegex = @"\\bCIG (\\d{3})V(\\d{3})\\b\\s*"
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:VariableCeilingHeightRegex];
         if (!match) return (self = nil);
         
         NSString *lowValue = [remarks substringWithRange:[match rangeAtIndex:1]];
-        self.low = [lowValue integerValue]*100;
+        self.low = lowValue.integerValue*100;
         
         NSString *highValue = [remarks substringWithRange:[match rangeAtIndex:2]];
-        self.high = [highValue integerValue]*100;
+        self.high = highValue.integerValue*100;
         
         [remarks deleteCharactersInRange:match.range];
     }

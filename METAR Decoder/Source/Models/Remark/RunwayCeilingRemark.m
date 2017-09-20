@@ -12,13 +12,13 @@ static NSString *RunwayCeilingRegex = @"\\bCIG (\\d{3}) RWY(\\d{1,2})\\b\\s*";
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:RunwayCeilingRegex];
         if (!match) return (self = nil);
         
         NSString *codedHeight = [remarks substringWithRange:[match rangeAtIndex:1]];
-        self.height = [codedHeight integerValue]*100;
+        self.height = codedHeight.integerValue*100;
         
         self.runwayName = [remarks substringWithRange:[match rangeAtIndex:2]];
         

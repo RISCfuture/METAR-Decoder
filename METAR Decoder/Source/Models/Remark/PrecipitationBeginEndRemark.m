@@ -35,7 +35,7 @@ static NSString *PrecipitationEventRegex = @"([BE])" REMARK_TIME_REGEX;
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:PrecipitationBeginEndRegex];
         if (!match) return (self = nil);

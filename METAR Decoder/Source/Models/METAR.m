@@ -7,12 +7,12 @@
 @synthesize codedData;
 @synthesize remarks;
 
-- (id) initWithString:(NSString *)METARString {
+- (instancetype) initWithString:(NSString *)METARString {
     if (self = [super init]) {
         NSArray *components = [METARString componentsSeparatedByString:@" "];
 
-        self.airport = [components objectAtIndex:0];
-        self.date = [self decodeDate:[components objectAtIndex:1]];
+        self.airport = components[0];
+        self.date = [self decodeDate:components[1]];
 
         NSUInteger remarksIndex = [components indexOfObject:@"RMK"];
         if (remarksIndex == NSNotFound)

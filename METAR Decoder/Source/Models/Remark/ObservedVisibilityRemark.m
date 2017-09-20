@@ -13,7 +13,7 @@ static NSString *ObservedVisibilityRegex = @"\\b(TWR|SFC) VIS " METAR_VISIBILITY
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:ObservedVisibilityRegex];
         if (!match) return (self = nil);

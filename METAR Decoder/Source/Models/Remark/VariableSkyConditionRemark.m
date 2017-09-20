@@ -16,7 +16,7 @@ static NSString *VariableSkyConditionRegex = @"\\b" COVERAGE_REGEX @"(\\d{3})? V
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:VariableSkyConditionRegex];
         if (!match) return (self = nil);
@@ -26,7 +26,7 @@ static NSString *VariableSkyConditionRegex = @"\\b" COVERAGE_REGEX @"(\\d{3})? V
         
         if ([match rangeAtIndex:2].location != NSNotFound) {
             NSString *codedHeight = [remarks substringWithRange:[match rangeAtIndex:2]];
-            self.height = [codedHeight integerValue]*100;
+            self.height = codedHeight.integerValue*100;
         }
         else self.height = HeightNotSpecified;
         

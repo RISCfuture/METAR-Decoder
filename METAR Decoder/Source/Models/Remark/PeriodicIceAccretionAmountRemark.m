@@ -12,15 +12,15 @@ static NSString *PeriodicIceAccretionAmountRemarkRegex = @"\\bI([136])(\\d{3})\\
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:PeriodicIceAccretionAmountRemarkRegex];
         if (!match) return (self = nil);
 
         NSString *codedPeriod = [remarks substringWithRange:[match rangeAtIndex:1]];
-        self.period = [codedPeriod integerValue];
+        self.period = (int)codedPeriod.integerValue;
         NSString *codedAmount = [remarks substringWithRange:[match rangeAtIndex:2]];
-        self.amount = [codedAmount integerValue]/100.0;
+        self.amount = codedAmount.integerValue/100.0;
 
         [remarks deleteCharactersInRange:match.range];
     }

@@ -12,13 +12,13 @@ static NSString *HourlyPrecipitationAmountRegex = @"\\bP(\\d{4})\\b\\s*";
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:HourlyPrecipitationAmountRegex];
         if (!match) return (self = nil);
         
         NSString *codedAmount = [remarks substringWithRange:[match rangeAtIndex:1]];
-        self.amount = [codedAmount integerValue]/100.0;
+        self.amount = codedAmount.integerValue/100.0;
         
         [remarks deleteCharactersInRange:match.range];
     }

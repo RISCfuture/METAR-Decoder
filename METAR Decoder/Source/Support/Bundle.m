@@ -16,7 +16,7 @@
 
 @implementation Bundle
 
-+ (id) shared {
++ (Bundle*) shared {
     static Bundle *bundle = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -25,7 +25,7 @@
     return bundle;
 }
 
-- (id) init {
+- (instancetype) init {
     if (self = [super init]) {
         [self load];
     }
@@ -36,7 +36,7 @@
     NSBundle *localeBundle = [NSBundle bundleWithURL:[bundle URLForResource:@"en" withExtension:@"lproj"]];
     NSURL *stringsURL = [localeBundle URLForResource:@"Localizable" withExtension:@"strings"];
     NSDictionary *strings = [NSDictionary dictionaryWithContentsOfURL:stringsURL];
-    return [strings objectForKey:key];
+    return strings[key];
     //return [localeBundle localizedStringForKey:key value:@"" table:nil];
 }
 
@@ -49,7 +49,7 @@
     uint32_t size = sizeof(cpath);
     if (_NSGetExecutablePath(cpath, &size) == 0) {
         NSString *path = [[NSString alloc] initWithCString:cpath encoding:NSUTF8StringEncoding];
-        NSString *bundlePath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"METAR Decoder Resources.bundle"];
+        NSString *bundlePath = [path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"METAR Decoder Resources.bundle"];
         bundle = [NSBundle bundleWithPath:bundlePath];
     }
 }

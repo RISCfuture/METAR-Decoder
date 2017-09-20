@@ -9,13 +9,13 @@
     NSDateComponents *date = nil;
     // hhmm
     if (dateString.length == 4) {
-        NSInteger hours = [[dateString substringWithRange:NSMakeRange(0, 2)] integerValue];
-        NSInteger minutes = [[dateString substringWithRange:NSMakeRange(2, 2)] integerValue];
+        NSInteger hours = [dateString substringWithRange:NSMakeRange(0, 2)].integerValue;
+        NSInteger minutes = [dateString substringWithRange:NSMakeRange(2, 2)].integerValue;
         date = [self dateWithHours:hours minutes:minutes];
     }
     // mm
     else if (dateString.length == 2) {
-        NSInteger minutes = [[dateString substringWithRange:NSMakeRange(0, 2)] integerValue];
+        NSInteger minutes = [dateString substringWithRange:NSMakeRange(0, 2)].integerValue;
         date = [self dateWithMinutes:minutes];
     }
     

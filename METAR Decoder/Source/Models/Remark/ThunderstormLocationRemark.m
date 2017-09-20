@@ -15,7 +15,7 @@ static NSString *ThunderstormLocationRegex = @"\\bTS(?: " REMARK_PROXIMITY_REGEX
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:ThunderstormLocationRegex];
         if (!match) return (self = nil);

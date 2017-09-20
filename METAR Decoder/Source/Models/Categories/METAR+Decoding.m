@@ -12,9 +12,9 @@
     
     NSDateComponents *date = [self.calendar componentsInTimeZone:timezone fromDate:[NSDate date]];
     
-    date.day = [[dateString substringWithRange:NSMakeRange(0, 2)] integerValue];
-    date.hour = [[dateString substringWithRange:NSMakeRange(2, 2)] integerValue];
-    date.minute = [[dateString substringWithRange:NSMakeRange(4, 2)] integerValue];
+    date.day = [dateString substringWithRange:NSMakeRange(0, 2)].integerValue;
+    date.hour = [dateString substringWithRange:NSMakeRange(2, 2)].integerValue;
+    date.minute = [dateString substringWithRange:NSMakeRange(4, 2)].integerValue;
     date.second = date.nanosecond = 0;
     
     return date;
@@ -82,10 +82,10 @@
     Rational *fraction;
 
     if ([match rangeAtIndex:index].location != NSNotFound) {
-        whole = [[string substringWithRange:[match rangeAtIndex:index]] integerValue];
+        whole = [string substringWithRange:[match rangeAtIndex:index]].integerValue;
     }
     else if ([match rangeAtIndex:index+5].location != NSNotFound) {
-        whole = [[string substringWithRange:[match rangeAtIndex:index+5]] integerValue];
+        whole = [string substringWithRange:[match rangeAtIndex:index+5]].integerValue;
     }
     else {
         whole = 0;
@@ -95,16 +95,16 @@
         fraction = NULL;
     }
     else {
-        fraction = [[Rational alloc] initWith:[[string substringWithRange:[match rangeAtIndex:index+1]] integerValue]
-                                                   over:[[string substringWithRange:[match rangeAtIndex:index+2]] integerValue]];
+        fraction = [[Rational alloc] initWith:[string substringWithRange:[match rangeAtIndex:index+1]].integerValue
+                                                   over:[string substringWithRange:[match rangeAtIndex:index+2]].integerValue];
     }
     return [[ImproperFraction alloc] initWithWhole:whole fraction:fraction];
 }
 
 - (Wind) parseWindFromMatch:(NSTextCheckingResult *)match index:(NSUInteger)index inString:(NSString *)string {
     Wind wind;
-    wind.direction = [[string substringWithRange:[match rangeAtIndex:index]] integerValue];
-    wind.speed = [[string substringWithRange:[match rangeAtIndex:index+1]] integerValue];
+    wind.direction = [string substringWithRange:[match rangeAtIndex:index]].integerValue;
+    wind.speed = [string substringWithRange:[match rangeAtIndex:index+1]].integerValue;
     return wind;
 }
 
@@ -113,8 +113,8 @@
     if ([match rangeAtIndex:index].location != NSNotFound)
         hoursString = [string substringWithRange:[match rangeAtIndex:index]];
     NSString *minutesString = [string substringWithRange:[match rangeAtIndex:index+1]];
-    if (hoursString) return [self dateWithHours:[hoursString integerValue] minutes:[minutesString integerValue]];
-    else return [self dateWithMinutes:[minutesString integerValue]];
+    if (hoursString) return [self dateWithHours:hoursString.integerValue minutes:minutesString.integerValue];
+    else return [self dateWithMinutes:minutesString.integerValue];
 }
 
 @end

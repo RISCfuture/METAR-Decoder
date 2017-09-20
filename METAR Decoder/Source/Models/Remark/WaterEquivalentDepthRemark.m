@@ -11,13 +11,13 @@ static NSString *WaterEquivalentDepthRegex = @"\\b933(\\d{3})\\b\\s*";
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:WaterEquivalentDepthRegex];
         if (!match) return (self = nil);
         
         NSString *codedDepth = [remarks substringWithRange:[match rangeAtIndex:1]];
-        self.depth = [codedDepth integerValue]/10.0;
+        self.depth = codedDepth.integerValue/10.0;
         
         [remarks deleteCharactersInRange:match.range];
     }

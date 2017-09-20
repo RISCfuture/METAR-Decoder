@@ -14,7 +14,7 @@ static NSString *ObscurationRegex = @"\\b" OBSCURATION_TYPE_REGEX @" " COVERAGE_
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:ObscurationRegex];
         if (!match) return (self = nil);
@@ -28,7 +28,7 @@ static NSString *ObscurationRegex = @"\\b" OBSCURATION_TYPE_REGEX @" " COVERAGE_
         }
         
         NSString *heightString = [remarks substringWithRange:[match rangeAtIndex:3]];
-        self.height = [heightString integerValue]*100;
+        self.height = heightString.integerValue*100;
         
         [remarks deleteCharactersInRange:match.range];
     }

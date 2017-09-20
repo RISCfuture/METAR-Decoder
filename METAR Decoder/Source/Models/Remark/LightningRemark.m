@@ -15,7 +15,7 @@ static NSString *LightningRegex = @"\\b(?:" REMARK_FREQUENCY_REGEX @" )?LTG((?:C
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSMutableSet *newTypes = [NSMutableSet new];
         
@@ -30,13 +30,13 @@ static NSString *LightningRegex = @"\\b(?:" REMARK_FREQUENCY_REGEX @" )?LTG((?:C
             NSString *codedTypeString = [remarks substringWithRange:[match rangeAtIndex:2]];
             NSArray *codedTypes = [codedTypeString componentsPartitionedByLength:2];
             if ([codedTypes containsObject:@"CG"])
-                [newTypes addObject:[NSNumber numberWithInt:LightningCloudToGround]];
+                [newTypes addObject:@(LightningCloudToGround)];
             if ([codedTypes containsObject:@"IC"])
-                [newTypes addObject:[NSNumber numberWithInt:LightningWithinCloud]];
+                [newTypes addObject:@(LightningWithinCloud)];
             if ([codedTypes containsObject:@"CC"])
-                [newTypes addObject:[NSNumber numberWithInt:LightningCloudToCloud]];
+                [newTypes addObject:@(LightningCloudToCloud)];
             if ([codedTypes containsObject:@"CA"])
-                [newTypes addObject:[NSNumber numberWithInt:LightningCloudToAir]];
+                [newTypes addObject:@(LightningCloudToAir)];
         }
         self.types = newTypes;
         
@@ -62,9 +62,9 @@ static NSString *LightningRegex = @"\\b(?:" REMARK_FREQUENCY_REGEX @" )?LTG((?:C
     
     NSString *typesString;
     if (self.types.count > 0)
-        typesString = [[[self.types map:^(id typeNumber) {
-            return [self localizedType:[(NSNumber *)typeNumber intValue]];
-        }] allObjects] componentsJoinedByString:MDLocalizedString(@"Common.ListSeparator", nil)];
+        typesString = [[self.types map:^(id typeNumber) {
+            return [self localizedType:((NSNumber *)typeNumber).intValue];
+        }].allObjects componentsJoinedByString:MDLocalizedString(@"Common.ListSeparator", nil)];
     else typesString = nil;
     
     NSString *directionString;

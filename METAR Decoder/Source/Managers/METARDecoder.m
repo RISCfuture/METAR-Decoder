@@ -31,7 +31,7 @@
     NSError *error;
     NSString *response = [NSString stringWithContentsOfURL:URL encoding:NSASCIIStringEncoding error:&error];
     if (error)
-        [[NSException exceptionWithName:@"METARException" reason:[error localizedDescription] userInfo:nil] raise];
+        [[NSException exceptionWithName:@"METARException" reason:error.localizedDescription userInfo:nil] raise];
 
     NSArray *lines = [response componentsSeparatedByString:@"\n"];
     NSString *METARLine = lines[6];

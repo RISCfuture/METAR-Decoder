@@ -3,11 +3,11 @@
 @property (assign) NSInteger numerator;
 @property (assign) NSUInteger denominator;
 
-- (id) initWith:(NSInteger)numerator over:(NSUInteger)denominator;
+- (instancetype) initWith:(NSInteger)numerator over:(NSUInteger)denominator;
 
-- (float) floatValue;
-- (double) doubleValue;
-- (NSString *) stringValue;
-- (NSString *) ASCIIStringValue;
+@property (NS_NONATOMIC_IOSONLY, readonly) float floatValue;
+@property (NS_NONATOMIC_IOSONLY, readonly) double doubleValue;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringValue;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *ASCIIStringValue;
 
 @end

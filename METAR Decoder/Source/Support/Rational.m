@@ -16,7 +16,7 @@ NSString *RationalSubscript(NSUInteger denominator);
 @synthesize numerator;
 @synthesize denominator;
 
-- (id) init {
+- (instancetype) init {
     if (self = [super init]) {
         self.numerator = 1;
         self.denominator = 1;
@@ -24,7 +24,7 @@ NSString *RationalSubscript(NSUInteger denominator);
     return self;
 }
 
-- (id) initWith:(NSInteger)num over:(NSUInteger)den {
+- (instancetype) initWith:(NSInteger)num over:(NSUInteger)den {
     if (self = [self init]) {
         self.numerator = num;
         self.denominator = den;

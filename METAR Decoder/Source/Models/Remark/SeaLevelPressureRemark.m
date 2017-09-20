@@ -14,14 +14,14 @@ static NSString *SeaLevelPressureRegex = @"\\bSLP(\\d{3}|NO)\\b\\s*";
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:SeaLevelPressureRegex];
         if (!match) return (self = nil);
         
         NSString *codedPressure = [remarks substringWithRange:[match rangeAtIndex:1]];
         if ([codedPressure isEqualToString:@"NO"]) self.pressure = SLPNotAvailable;
-        else self.pressure = [codedPressure integerValue]/10.0 + 900;
+        else self.pressure = codedPressure.integerValue/10.0 + 900;
         
         [remarks deleteCharactersInRange:match.range];
     }

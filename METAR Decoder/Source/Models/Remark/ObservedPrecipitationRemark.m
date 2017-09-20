@@ -14,7 +14,7 @@ static NSString *VirgaRegex = @"\\b(VIRGA|SHRA|SH)(?: " REMARK_PROXIMITY_REGEX "
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:VirgaRegex];
         if (!match) return (self = nil);

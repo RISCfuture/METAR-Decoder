@@ -3,8 +3,9 @@
 @property (assign) NSInteger whole;
 @property (strong) Rational *fraction;
 
-- (id) initWithWhole:(NSInteger)wholePart fraction:(Rational *)fractionalPart;
+- (instancetype) init NS_UNAVAILABLE;
+- (instancetype) initWithWhole:(NSInteger)wholePart fraction:(Rational *)fractionalPart NS_DESIGNATED_INITIALIZER;
 
-- (NSString *) stringValue;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringValue;
 
 @end

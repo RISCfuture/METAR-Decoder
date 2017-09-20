@@ -14,7 +14,7 @@ static NSString *TemperatureDewpointRegex = @"\\bT(0|1)(\\d{3})(?:(0|1)(\\d{3}))
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:TemperatureDewpointRegex];
         if (!match) return (self = nil);
@@ -22,13 +22,13 @@ static NSString *TemperatureDewpointRegex = @"\\bT(0|1)(\\d{3})(?:(0|1)(\\d{3}))
         NSString *codedTempSign = [remarks substringWithRange:[match rangeAtIndex:1]];
         NSInteger tempMultiplier = ([codedTempSign isEqualToString:@"0"] ? 1 : -1);
         NSString *codedTemp = [remarks substringWithRange:[match rangeAtIndex:2]];
-        self.temperature = [codedTemp integerValue]/10.0*tempMultiplier;
+        self.temperature = codedTemp.integerValue/10.0*tempMultiplier;
         
         if ([match rangeAtIndex:3].location != NSNotFound) {
             NSString *codedDewpointSign = [remarks substringWithRange:[match rangeAtIndex:3]];
             NSInteger dewpointMultiplier = ([codedDewpointSign isEqualToString:@"0"] ? 1 : -1);
             NSString *codedDewpoint = [remarks substringWithRange:[match rangeAtIndex:4]];
-            self.dewpoint = [codedDewpoint integerValue]/10.0*dewpointMultiplier;
+            self.dewpoint = codedDewpoint.integerValue/10.0*dewpointMultiplier;
             self.dewpointUnknown = NO;
         } else
             self.dewpointUnknown = YES;

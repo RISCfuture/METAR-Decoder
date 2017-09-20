@@ -17,7 +17,7 @@ static NSString *TornadicActivityRegex = @"\\b(TORNADO|FUNNEL CLOUD|WATERSPOUT) 
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:TornadicActivityRegex];
         if (!match) return (self = nil);
@@ -37,7 +37,7 @@ static NSString *TornadicActivityRegex = @"\\b(TORNADO|FUNNEL CLOUD|WATERSPOUT) 
         else return (self = nil);
         
         RemarkLocation loc;
-        loc.distance = [[remarks substringWithRange:[match rangeAtIndex:5]] integerValue];
+        loc.distance = [remarks substringWithRange:[match rangeAtIndex:5]].integerValue;
         loc.direction = [self decodeDirection:[remarks substringWithRange:[match rangeAtIndex:6]]];
         self.location = loc;
         

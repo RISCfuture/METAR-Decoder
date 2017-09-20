@@ -11,13 +11,13 @@ static NSString *SunshineDurationRegex = @"\\b98(\\d{3})\\b\\s*";
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:SunshineDurationRegex];
         if (!match) return (self = nil);
         
         NSString *codedDuration = [remarks substringWithRange:[match rangeAtIndex:1]];
-        self.duration = [codedDuration integerValue];
+        self.duration = codedDuration.integerValue;
         
         [remarks deleteCharactersInRange:match.range];
     }

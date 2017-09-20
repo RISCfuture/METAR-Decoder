@@ -12,16 +12,16 @@ static NSString *PressureTendencyRegex = @"\\b5(\\d)(\\d{3})\\b\\s*";
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:PressureTendencyRegex];
         if (!match) return (self = nil);
         
         NSString *codedCharacter = [remarks substringWithRange:[match rangeAtIndex:1]];
-        self.character = (PressureCharacter)[codedCharacter integerValue];
+        self.character = (PressureCharacter)codedCharacter.integerValue;
         
         NSString *codedPressure = [remarks substringWithRange:[match rangeAtIndex:2]];
-        self.pressureChange = [codedPressure integerValue]/10.0;
+        self.pressureChange = codedPressure.integerValue/10.0;
         
         [remarks deleteCharactersInRange:match.range];
     }

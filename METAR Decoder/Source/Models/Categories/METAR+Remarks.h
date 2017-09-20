@@ -1,6 +1,6 @@
 @interface METAR (Remarks)
 
-- (NSArray *) decodedRemarks;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *decodedRemarks;
 - (Remark *) nextDecodedRemark:(NSMutableString *)remarks;
 
 @end

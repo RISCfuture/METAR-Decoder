@@ -6,10 +6,10 @@ int main(int argc, const char * argv[]) {
             printf("Enter the ICAO code of an airport to decode or a METAR string.\n");
             char code[256];
             scanf("%256[^\n]", code);
-            airportCode = [NSString stringWithCString:code encoding:NSASCIIStringEncoding];
+            airportCode = @(code);
         }
         else {
-            airportCode = [NSString stringWithCString:argv[1] encoding:NSASCIIStringEncoding];
+            airportCode = @(argv[1]);
         }
 
         METARDecoder *decoder = [METARDecoder new];

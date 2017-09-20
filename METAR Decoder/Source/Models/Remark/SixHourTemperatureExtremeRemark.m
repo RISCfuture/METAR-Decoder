@@ -15,7 +15,7 @@ static NSString *SixHourTempertureExtremeRegex = @"\\b(1|2)(0|1)(\\d{3})\\b\\s*"
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:SixHourTempertureExtremeRegex];
         if (!match) return (self = nil);
@@ -27,7 +27,7 @@ static NSString *SixHourTempertureExtremeRegex = @"\\b(1|2)(0|1)(\\d{3})\\b\\s*"
         NSString *codedSign = [remarks substringWithRange:[match rangeAtIndex:2]];
         NSInteger multiplier = ([codedSign isEqualToString:@"0"] ? 1 : -1);
         NSString *codedTemp = [remarks substringWithRange:[match rangeAtIndex:3]];
-        self.temperature = [codedTemp integerValue]/10.0*multiplier;
+        self.temperature = codedTemp.integerValue/10.0*multiplier;
         
         [remarks deleteCharactersInRange:match.range];
     }

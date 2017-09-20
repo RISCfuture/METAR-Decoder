@@ -17,14 +17,14 @@ static NSString *DailyPrecipitationAmountRegex = @"\\b6(?:(\\d{4})\\b|(\\/{4}))\
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:DailyPrecipitationAmountRegex];
         if (!match) return (self = nil);
         
         if ([match rangeAtIndex:2].location == NSNotFound) {
             NSString *codedAmount = [remarks substringWithRange:[match rangeAtIndex:1]];
-            self.amount = [codedAmount integerValue]/100.0;
+            self.amount = codedAmount.integerValue/100.0;
         }
         else self.amount = IndeterminateAmount;
         
@@ -59,7 +59,7 @@ static NSString *DailyPrecipitationAmountRegex = @"\\b6(?:(\\d{4})\\b|(\\/{4}))\
     NSString *periodString;
     if (self.period == UnknownPeriod)
         periodString = MDLocalizedString(@"METAR.Remark.PeriodicPrecipitationAmount.Period.Unknown", @"…hours");
-    else periodString = [[NSNumber numberWithInteger:self.period] stringValue];
+    else periodString = @(self.period).stringValue;
     
     if (self.amount == IndeterminateAmount)
         return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.PeriodicPrecipitationAmount.Indeterminate", @"{period}"),

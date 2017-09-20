@@ -14,21 +14,21 @@ static NSString *CloudTypesRegex = @"\\b8\\/(\\d)(\\d|\\/)(\\d|\\/)\\s*";
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:CloudTypesRegex];
         if (!match) return (self = nil);
         
         NSString *codedLow = [remarks substringWithRange:[match rangeAtIndex:1]];
-        self.low = [codedLow intValue];
+        self.low = codedLow.intValue;
         
         NSString *codedMid = [remarks substringWithRange:[match rangeAtIndex:2]];
         if ([codedMid isEqualToString:@"/"]) self.middle = MiddleObscured;
-        else self.middle = [codedMid intValue];
+        else self.middle = codedMid.intValue;
         
         NSString *codedHigh = [remarks substringWithRange:[match rangeAtIndex:3]];
         if ([codedHigh isEqualToString:@"/"]) self.high = HighObscured;
-        else self.high = [codedHigh intValue];
+        else self.high = codedHigh.intValue;
         
         [remarks deleteCharactersInRange:match.range];
 

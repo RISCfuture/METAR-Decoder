@@ -12,16 +12,16 @@ static NSString *RapidSnowIncreaseRegex = @"\\bSNINCR (\\d+)\\/(\\d+)\\b\\s*";
     [Remark registerSubclass:self];
 }
 
-- (id) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableString *)remarks forMETAR:(METAR *)METAR {
     if (self = [super initFromRemarks:remarks forMETAR:METAR]) {
         NSTextCheckingResult *match = [self matchRemarks:remarks withRegex:RapidSnowIncreaseRegex];
         if (!match) return (self = nil);
         
         NSString *codedDepthIncrease = [remarks substringWithRange:[match rangeAtIndex:1]];
-        self.depthIncrease = [codedDepthIncrease integerValue];
+        self.depthIncrease = codedDepthIncrease.integerValue;
         
         NSString *codedTotal = [remarks substringWithRange:[match rangeAtIndex:2]];
-        self.totalDepth = [codedTotal integerValue];
+        self.totalDepth = codedTotal.integerValue;
         
         [remarks deleteCharactersInRange:match.range];
     }

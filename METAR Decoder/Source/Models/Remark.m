@@ -15,7 +15,7 @@ static NSMutableSet *subclasses = nil;
     return [NSSet setWithSet:subclasses];
 }
 
-- (id) initFromRemarks:(NSMutableArray *)remarks forMETAR:(METAR *)METAR {
+- (instancetype) initFromRemarks:(NSMutableArray *)remarks forMETAR:(METAR *)METAR {
     if (self = [super init]) {
         self.parent = METAR;
     }

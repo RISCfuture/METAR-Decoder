@@ -5,6 +5,7 @@
 @property (strong) NSString *codedData;
 @property (strong) NSString *remarks;
 
-- (id) initWithString:(NSString *)METARString;
+- (instancetype) init NS_UNAVAILABLE;
+- (instancetype) initWithString:(NSString *)METARString NS_DESIGNATED_INITIALIZER;
 
 @end
