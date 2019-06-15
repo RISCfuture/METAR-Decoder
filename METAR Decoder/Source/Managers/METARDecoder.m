@@ -25,7 +25,7 @@
 @implementation METARDecoder (Network)
 
 - (NSString *) codedMETARForAirport:(NSString *)airportCode {
-    NSString *URLString = [NSString stringWithFormat:@"https://aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=csv&stationString=%@&hoursBeforeNow=1", airportCode];
+    NSString *URLString = [NSString stringWithFormat:@"https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=csv&stationString=%@&hoursBeforeNow=1", airportCode];
     NSURL *URL = [[NSURL alloc] initWithString:URLString];
 
     NSError *error;
