@@ -497,7 +497,7 @@
 		223F5CC019304638004CF0E7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Tim Morgan";
 				TargetAttributes = {
 					01750E631F2070AE00A34584 = {
@@ -769,6 +769,7 @@
 		223F5CD719304638004CF0E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "METAR Decoder/Source/METAR Decoder-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -778,6 +779,7 @@
 		223F5CD819304638004CF0E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "METAR Decoder/Source/METAR Decoder-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -3,7 +3,7 @@
 // TS SE MOV NE
 // TS OHD MOV N
 // TS MOV N
-static NSString *ThunderstormLocationRegex = @"\\bTS(?: " REMARK_PROXIMITY_REGEX ")?(?: " REMARK_DIRECTIONS_REGEX @")?(?: MOV " REMARK_DIRECTION_REGEX ")?\\b\\s*";
+static NSString *ThunderstormLocationRegex = @"\\bTS(?: " REMARK_PROXIMITY_REGEX ")?(?:[ \\-]" REMARK_DIRECTIONS_REGEX @")?(?: MOV " REMARK_DIRECTION_REGEX ")?\\b\\s*";
 
 @implementation ThunderstormLocationRemark
 
@@ -73,7 +73,7 @@ static NSString *ThunderstormLocationRegex = @"\\bTS(?: " REMARK_PROXIMITY_REGEX
     } else {
         if (self.proximity != ProximityUnknown) {
             if (self.movingDirection == DirectionNone) {
-                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.Proximity ", @"{proximity}"),
+                return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.Proximity", @"{proximity}"),
                         [self localizedProximity:self.proximity]];
             } else {
                 return [NSString localizedStringWithFormat:MDLocalizedString(@"METAR.Remark.ThunderstormLocation.ProximityMoving", @"{proximity}, {movement direction}"),
